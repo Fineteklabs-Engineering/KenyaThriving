@@ -1,0 +1,76 @@
+.tst {
+  position: relative;
+  background: #0a0a0b;
+  padding: clamp(40px, 5vw, 72px) clamp(20px, 4vw, 48px) clamp(72px, 8vw, 120px);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* map + watermark backdrop, pinned to the top area */
+.tst__backdrop {
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 56%; z-index: 0;
+  display: flex; align-items: center; justify-content: center;
+  pointer-events: none;
+}
+.tst__map {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  width: min(1150px, 94%); height: auto; opacity: .55;
+}
+.tst__watermark {
+  position: relative;
+  font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(3rem, 13vw, 12rem); letter-spacing: .02em;
+  color: rgba(255,255,255,.06); white-space: nowrap; user-select: none;
+}
+
+/* scatter stage (desktop) — cards absolutely placed */
+.tst__stage {
+  position: relative; z-index: 2;
+  max-width: 1200px; margin: 0 auto;
+  height: clamp(1160px, 116vw, 1320px);
+}
+.tst__card {
+  position: absolute;
+  width: min(340px, 82vw);
+  height: 400px;
+  background: rgba(18,18,20,.9);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: var(--r-lg);
+  padding: clamp(24px, 2.2vw, 32px);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  display: flex; flex-direction: column;
+}
+.tst__quote {
+  font-family: var(--font-display); font-weight: 600; color: #fff;
+  font-size: clamp(1.2rem, 1.7vw, 1.5rem); line-height: 1.22;
+}
+.tst__text {
+  margin-top: 14px; color: rgba(255,255,255,.68);
+  font-size: .92rem; line-height: 1.6;
+}
+.tst__foot { margin-top: auto; }
+.tst__name { font-weight: 700; font-size: 1rem; }
+.tst__meta { color: rgba(255,255,255,.45); font-size: .85rem; margin-top: 2px; }
+.tst__more {
+  display: inline-flex; align-items: center; gap: 6px;
+  margin-top: 14px; font-weight: 600; font-size: .9rem;
+}
+.tst__more svg { transition: transform .25s; }
+.tst__more:hover svg { transform: translateX(4px); }
+
+@media (max-width: 1024px) {
+  .tst__backdrop { height: 300px; }      
+  .tst__stage {
+    height: auto;
+    display: flex; flex-direction: column; align-items: center;
+    gap: clamp(18px, 3vw, 28px);
+    padding-top: 320px;                      /* push the first card below the word */
+  }
+  .tst__card {
+    position: static;                        /* drop absolute placement */
+    width: min(460px, 100%);
+    height: auto; min-height: 360px;
+  }
+}

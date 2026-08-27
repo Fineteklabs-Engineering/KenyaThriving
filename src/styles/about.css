@@ -1,0 +1,75 @@
+.about {
+  position: relative;
+  background: var(--kt-mist);
+  min-height: 100vh; min-height: 100svh;
+  overflow: hidden;
+  display: flex; flex-direction: column; align-items: center;
+  padding: clamp(56px, 8vw, 96px) clamp(20px, 5vw, 48px) 0;
+  isolation: isolate;
+}
+
+/* wiggly-lines background image */
+.about__bg {
+  position: absolute; inset: 0; z-index: 0;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: cover;
+  pointer-events: none;
+}
+.about__waves path { fill: none; stroke-width: 2; stroke-linecap: round; }
+
+/* content */
+.about__content {
+  position: relative; z-index: 2;
+  text-align: center; max-width: 840px;
+  display: flex; flex-direction: column; align-items: center;
+}
+.about__eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--kt-white); color: var(--kt-ink);
+  font-size: .84rem; font-weight: 600;
+  padding: 9px 18px; border-radius: var(--r-pill);
+  box-shadow: 0 6px 18px -10px rgba(42,52,58,.35);
+}
+.about__eyebrow svg { color: var(--kt-orange); font-size: 1rem; }
+.about__title {
+  font-family: var(--font-display);
+  font-weight: 600; color: var(--kt-ink);
+  font-size: clamp(1.9rem, 4.4vw, 3.3rem);
+  line-height: 1.14; letter-spacing: -0.01em;
+  text-wrap: balance;
+  margin-top: 22px;
+}
+.about__btn {
+  display: inline-flex; align-items: center;
+  margin-top: 28px;
+  background: var(--kt-ink); color: var(--kt-white);
+  font-weight: 600; font-size: 1rem;
+  padding: 15px 32px; border-radius: var(--r-pill);
+  transition: transform .25s, background .25s, box-shadow .25s;
+}
+.about__btn:hover {
+  transform: translateY(-2px);
+  background: #1c2429;
+  box-shadow: 0 14px 26px -12px rgba(28,36,41,.5);
+}
+
+/* bottom image */
+.about__image {
+  position: relative; z-index: 1;
+  margin-top: auto;
+  width: 100%;
+  display: flex; justify-content: center;
+  pointer-events: none;
+}
+
+.about__image img { width: clamp(300px, 42vw, 500px); height: auto; display: block; }
+
+@media (min-width: 1440px) {
+  .about__image img { width: clamp(540px, 44vw, 720px); }
+}
+
+@media (max-width: 760px) {
+  .about { min-height: auto; padding-bottom: 0; }
+  .about__image img { width: min(88%, 420px); }
+}

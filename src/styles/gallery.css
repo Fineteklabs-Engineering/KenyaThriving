@@ -1,0 +1,82 @@
+.gallery {
+  background: var(--kt-mist);
+  min-height: 100vh; min-height: 100svh;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: clamp(28px, 4vw, 48px);
+  padding: clamp(56px, 8vw, 96px) clamp(20px, 5vw, 48px);
+  overflow: hidden; /* contain the pile during the spread */
+}
+
+/* heading */
+.gallery__head {
+  text-align: center; max-width: 720px;
+  display: flex; flex-direction: column; align-items: center;
+}
+.gallery__eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: #fff; color: var(--kt-ink);
+  border: 1px solid var(--kt-line);
+  font-size: .84rem; font-weight: 600;
+  padding: 9px 18px; border-radius: var(--r-pill);
+  box-shadow: 0 6px 18px -12px rgba(42,52,58,.3);
+}
+.gallery__eyebrow svg { color: var(--kt-orange); font-size: 1rem; }
+.gallery__title {
+  font-family: var(--font-display);
+  font-weight: 600; color: var(--kt-ink);
+  font-size: clamp(1.9rem, 4.4vw, 3.2rem);
+  line-height: 1.14; letter-spacing: -0.01em;
+  margin-top: 20px;
+}
+
+/* grid */
+.gallery__grid {
+  width: 100%; max-width: 1080px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(14px, 1.8vw, 22px);
+}
+.gallery__card {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  box-shadow: 0 18px 40px -20px rgba(42,52,58,.5);
+  background: #e6ece2;
+  will-change: transform;
+}
+.gallery__card img {
+  width: 100%; height: 100%;
+  object-fit: cover; display: block;
+  transition: transform .5s ease;
+}
+.gallery__card:hover img { transform: scale(1.06); }
+.gallery__ph {
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, #dfe7db, #eef3ea);
+}
+
+/* see more */
+.gallery__more {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--kt-ink); color: #fff;
+  font-weight: 600; font-size: 1rem;
+  padding: 15px 30px; border-radius: var(--r-pill);
+  transition: transform .25s, background .25s, box-shadow .25s;
+}
+.gallery__more svg { transition: transform .25s; }
+.gallery__more:hover {
+  transform: translateY(-2px);
+  background: #1c2429;
+  box-shadow: 0 14px 26px -12px rgba(28,36,41,.5);
+}
+.gallery__more:hover svg { transform: translateX(4px); }
+
+/* responsive */
+@media (max-width: 860px) {
+  .gallery { min-height: auto; }
+  .gallery__grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 520px) {
+  .gallery__grid { grid-template-columns: 1fr; }
+}
