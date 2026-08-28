@@ -42,6 +42,7 @@ export default function Hero() {
       </div>
 
       {/* ---------- RIGHT ---------- */}
+            {/* ---------- RIGHT ---------- */}
       <motion.div
         className="hero__right"
         initial={{ opacity: 0 }}
@@ -49,8 +50,8 @@ export default function Hero() {
         transition={{ duration: 0.6, delay: 0.15 }}
       >
         <div className="hero__right-top">
-          <span className="hero__eyebrow">Active fundraising campaign</span>
-          <span className="hero__tag"><FiMapPin /> Kenya</span>
+          <span className="hero__eyebrow">Upcoming fundraiser</span>
+          <span className="hero__tag"><FiMapPin /> Migori, Kenya</span>
         </div>
 
         <motion.div
@@ -59,17 +60,17 @@ export default function Hero() {
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.7, ease, delay: 0.35 }}
         >
-          <h2 className="hero__campaign-title">Learning Stars<br />Education Fund 2026</h2>
+          <h2 className="hero__campaign-title">Cycling the Liverpool–Leeds Canal for Kenya</h2>
 
           <div className="hero__campaign-row">
             <div className="hero__card">
-              <img src="https://res.cloudinary.com/gjpfbvzb/image/upload/v1787744589/images_zqnc5m.jpg" alt="Children in a Learning Stars classroom" />
+              <img src="https://res.cloudinary.com/gjpfbvzb/image/upload/v1787904495/On-the-way-to-Bantry-Day-1_psklnc.jpg" alt="Riding to raise funds for the young people we support in Migori" />
             </div>
             <a href="/donation" className="hero__donate">Donate Now</a>
           </div>
         </motion.div>
 
-        {/* replaces the goal/progress bar */}
+        {/* target line */}
         <motion.div
           className="hero__impact"
           initial={{ y: 20, opacity: 0 }}
@@ -77,7 +78,7 @@ export default function Hero() {
           transition={{ duration: 0.6, ease, delay: 0.5 }}
         >
           <FiBookOpen className="hero__impact-icon" />
-          <p>Making a real difference where it counts. Improving lives of orphaned childern in Kenya.</p>
+          <p>Riding 127 miles this September to raise <strong>£5,000</strong> for the students we support in Migori.</p>
         </motion.div>
 
         <motion.ul
@@ -86,9 +87,9 @@ export default function Hero() {
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6, ease, delay: 0.6 }}
         >
-          <li><FiCheck />10 Vocational Training Institution</li>
-          <li><FiCheck /> 13 High School</li>
-          <li><FiCheck /> 15 Junior Secondary School</li>
+          <li><FiCheck /> 127 miles / 203 km</li>
+          <li><FiCheck /> £5,000 target</li>
+          <li><FiCheck /> 46 students supported</li>
         </motion.ul>
       </motion.div>
     </header>
