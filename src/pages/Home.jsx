@@ -8,7 +8,7 @@ import Gallery from '../components/Gallery';
 import Testimonials from '../components/Testimonials';
 import HowWeSupport from '../components/HowWeSupport';
 import News from '../components/News';
-import Newsletter from '../components/NewsLetter';
+import Newsletter from '../components/Newsletter';
 import Footer from '../components/Footer';
 import ScrollNav from '../components/ScrollNav';
 
