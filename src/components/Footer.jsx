@@ -1,6 +1,6 @@
 import { motion } from 'motion/react';
 import { FiArrowRight } from 'react-icons/fi';
-import { FaFacebookF, FaInstagram, FaXTwitter, FaLinkedinIn } from 'react-icons/fa6';
+import { FaFacebookF, FaInstagram, FaXTwitter, FaLinkedinIn, FaYoutube } from 'react-icons/fa6';
 
 import '../styles/footer.css';
 
@@ -24,10 +24,10 @@ const utility = [
 ];
 
 const socials = [
-  { icon: <FaFacebookF />, href: '#', label: 'Facebook' },
-  { icon: <FaInstagram />, href: '#', label: 'Instagram' },
+  { icon: <FaFacebookF />, href: 'https://www.facebook.com/kenyathriving', label: 'Facebook' },
+  { icon: <FaYoutube />, href: 'https://www.youtube.com/@kenyathriving4508', label: 'Youtube' },
   { icon: <FaLinkedinIn />, href: '#', label: 'LinkedIn' },
-  { icon: <FaXTwitter />, href: '#', label: 'X' },
+  { icon: <FaXTwitter />, href: 'https://x.com/Kenyathriving', label: 'X' },
 ];
 
 export default function Footer() {
