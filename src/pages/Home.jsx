@@ -10,6 +10,7 @@ import HowWeSupport from '../components/HowWeSupport';
 import News from '../components/News';
 import Newsletter from '../components/NewsLetter';
 import Footer from '../components/Footer';
+import ScrollNav from '../components/ScrollNav';
 
 export default function Home() {
   return (
@@ -21,7 +22,7 @@ export default function Home() {
           content="Kenya Thriving's Learning Stars programme gives orphaned and vulnerable children in Kenya access to education. 100% of every donation reaches the children."
         />
       </Helmet>
-
+      <ScrollNav />
       <Hero />
       <LearningStars />
       <About />

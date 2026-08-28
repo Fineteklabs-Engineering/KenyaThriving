@@ -5,8 +5,8 @@ import '../styles/gallery.css';
 const ease = [0.22, 1, 0.36, 1];
 
 // paste your 6 image URLs here
-const images = ['https://res.cloudinary.com/gjpfbvzb/image/upload/v1787743843/h4-banner05_b4y6ul.png', 
-'https://res.cloudinary.com/gjpfbvzb/image/upload/v1787821706/IMG_4176-1-scaled_lpbuoq.webp', 
+const images = ['https://res.cloudinary.com/gjpfbvzb/image/upload/v1787900942/WhatsApp_Image_2026-08-28_at_08.29.18_hgewaf.jpg', 
+'https://res.cloudinary.com/gjpfbvzb/image/upload/v1787900927/WhatsApp_Image_2026-08-28_at_08.32.30_ia3m7j.jpg', 
 'https://res.cloudinary.com/gjpfbvzb/image/upload/v1787744589/images_zqnc5m.jpg', 
 'https://res.cloudinary.com/gjpfbvzb/image/upload/v1787748336/images_2_wbod3v.jpg', 
 'https://res.cloudinary.com/gjpfbvzb/image/upload/v1787821796/Crochet-2019_b6kuwe.jpg', 
