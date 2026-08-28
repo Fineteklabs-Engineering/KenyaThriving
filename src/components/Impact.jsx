@@ -20,7 +20,7 @@ const items = [
   {
     heading: 'Practical Skills',
     desc: 'We provide practical skills training so children can find work and break the cycle of poverty.',
-    image: 'https://res.cloudinary.com/gjpfbvzb/image/upload/v1787821796/Crochet-2019_b6kuwe.jpg',
+    image: 'https://res.cloudinary.com/gjpfbvzb/image/upload/v1787903109/IMG_1261_i8rwml.jpg',
   },
   {
     heading: 'Mentorship & Counselling',
