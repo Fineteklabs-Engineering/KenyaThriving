@@ -64,7 +64,7 @@ export default function Hero() {
 
           <div className="hero__campaign-row">
             <div className="hero__card">
-              <img src="https://res.cloudinary.com/gjpfbvzb/image/upload/v1787904495/On-the-way-to-Bantry-Day-1_psklnc.jpg" alt="Riding to raise funds for the young people we support in Migori" />
+              <img src="https://res.cloudinary.com/gjpfbvzb/image/upload/v1788112381/WhatsApp_Image_2026-08-29_at_21.37.51_iofqwa.jpg" alt="Riding to raise funds for the young people we support in Migori" />
             </div>
             <a href="/donation" className="hero__donate">Donate Now</a>
           </div>
