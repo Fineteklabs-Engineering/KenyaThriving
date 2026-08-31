@@ -18,7 +18,7 @@ export default function ScrollNav() {
   const [scrolled, setScrolled] = useState(false);
   const probeRef = useRef(null);
 
-  // Observe a top probe. When the top of the page scrolls past it, go solid.
+
   useEffect(() => {
     const el = probeRef.current;
     if (!el || !('IntersectionObserver' in window)) return;

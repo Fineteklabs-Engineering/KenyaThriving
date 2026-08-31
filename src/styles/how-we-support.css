@@ -25,7 +25,7 @@
 /* translucent dark card, far right */
 .hws__card {
   width: min(420px, 100%);
-  background: rgba(15,18,20,.42);
+  background: rgba(15,18,20,.52);
   border: 1px solid rgba(255,255,255,.12);
   border-radius: clamp(14px, 1.6vw, 20px);
   padding: clamp(28px, 3vw, 44px);
