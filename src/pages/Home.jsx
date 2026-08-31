@@ -12,6 +12,7 @@ import Newsletter from '../components/Newsletter';
 import Footer from '../components/Footer';
 import ScrollNav from '../components/ScrollNav';
 import Marquee from '../components/Marquee';
+import Donate from '../components/Donate';
 
 export default function Home() {
   return (
@@ -32,7 +33,8 @@ export default function Home() {
       <Gallery />
       <Testimonials />
       <Marquee />
-      <HowWeSupport />
+       <HowWeSupport />
+      <Donate />
       <News />
       <Newsletter />
       <Footer />
