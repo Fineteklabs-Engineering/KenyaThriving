@@ -1,5 +1,6 @@
 .ls {
-  background: var(--kt-dark);
+  background: var(
+      --kt-petrol);
   min-height: 100vh;
   min-height: 100svh;
   display: flex;

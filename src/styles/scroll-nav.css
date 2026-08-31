@@ -1,15 +1,16 @@
 .sn {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
   background: transparent;
   border-bottom: 1px solid transparent;
   transition: background .3s ease, border-color .3s ease, backdrop-filter .3s ease;
   will-change: background;
 }
+/* translucent white bar on scroll */
 .sn.is-scrolled {
-  background: rgba(15,19,22,.9);
+  background: rgba(255,255,255,.8);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border-bottom-color: rgba(255,255,255,.08);
+  border-bottom-color: rgba(0,0,0,.06);
 }
 
 .sn__inner {
@@ -25,7 +26,7 @@
 .sn__brand { display: inline-flex; align-items: center; }
 .sn__logo { height: 32px; width: auto; }
 
-/* centred links */
+/* centred links — white over hero, dark on the white scrolled bar */
 .sn__links {
   display: flex; justify-content: center; align-items: center;
   gap: clamp(18px, 2.4vw, 38px);
@@ -37,8 +38,10 @@
   transition: color .2s;
 }
 .sn__links a:hover { color: #fff; }
+.sn.is-scrolled .sn__links a { color: rgba(42,52,58,.85); }
+.sn.is-scrolled .sn__links a:hover { color: var(--kt-ink); }
 
-/* right button */
+/* right button (orange reads on both states) */
 .sn__cta {
   display: inline-flex; align-items: center;
   background: var(--kt-orange); color: #fff;
@@ -49,16 +52,17 @@
 }
 .sn__cta:hover { transform: translateY(-2px); filter: brightness(1.08); }
 
-/* hamburger hidden on desktop */
+/* hamburger — white over hero, dark on the white scrolled bar */
 .sn__burger {
   display: none;
   color: #fff; font-size: 1.5rem;
   align-items: center; justify-content: center;
 }
+.sn.is-scrolled .sn__burger { color: var(--kt-ink); }
 
 /* overlay menu */
 .sn-menu {
-  position: fixed; inset: 0; z-index: 60;
+  position: fixed; inset: 0; z-index: 110;
   background: var(--kt-ink);
   display: flex; flex-direction: column;
   padding: 22px clamp(22px, 6vw, 80px) 48px;
@@ -77,7 +81,7 @@
 .sn-menu__links {
   display: flex; flex-direction: column; gap: 4px;
   margin-top: auto; margin-bottom: 28px;
-}*
+}
 .sn-menu__link {
   width: max-content; max-width: 100%;
   font-family: var(--font-display);
@@ -100,7 +104,8 @@
 
 @media (max-width: 860px) {
   .sn__inner {
-    grid-template-columns: auto 1fr auto;
+    grid-template-columns: auto auto;      /* logo | hamburger */
+    justify-content: space-between;        /* push them to the edges */
     padding-left: clamp(20px, 5vw, 28px);
     padding-right: clamp(20px, 5vw, 28px);
   }

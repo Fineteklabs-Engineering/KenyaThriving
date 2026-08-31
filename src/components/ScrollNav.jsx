@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { FiMenu, FiX } from 'react-icons/fi';
 import '../styles/scroll-nav.css';
@@ -16,12 +16,18 @@ const links = [
 export default function ScrollNav() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const probeRef = useRef(null);
 
+  // Observe a top probe. When the top of the page scrolls past it, go solid.
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 60);
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
+    const el = probeRef.current;
+    if (!el || !('IntersectionObserver' in window)) return;
+    const io = new IntersectionObserver(
+      ([entry]) => setScrolled(entry.intersectionRatio < 1),
+      { threshold: [0, 1] }
+    );
+    io.observe(el);
+    return () => io.disconnect();
   }, []);
 
   useEffect(() => {
@@ -37,23 +43,27 @@ export default function ScrollNav() {
 
   return (
     <>
+      {/* probe pinned to the very top of the page (in normal flow) */}
+      <div
+        ref={probeRef}
+        aria-hidden="true"
+        style={{ position: 'absolute', top: 0, left: 0, height: '1px', width: '100%', pointerEvents: 'none' }}
+      />
+
       <nav className={`sn${scrolled ? ' is-scrolled' : ''}`}>
         <div className="sn__inner">
           <a href="/" className="sn__brand" aria-label="Kenya Thriving — home">
             <img src={LOGO} alt="Kenya Thriving" className="sn__logo" />
           </a>
 
-          {/* centred links (desktop) */}
           <ul className="sn__links">
             {links.map((l) => (
               <li key={l.href}><a href={l.href}>{l.label}</a></li>
             ))}
           </ul>
 
-          {/* right: Volunteer button (desktop) */}
           <a href="/become-a-volunteer" className="sn__cta">Volunteer</a>
 
-          {/* mobile hamburger */}
           <button
             className="sn__burger"
             onClick={() => setOpen(true)}
@@ -65,7 +75,6 @@ export default function ScrollNav() {
         </div>
       </nav>
 
-      {/* overlay menu (mobile) */}
       <AnimatePresence>
         {open && (
           <motion.div
