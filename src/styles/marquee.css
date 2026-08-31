@@ -1,0 +1,48 @@
+.mq {
+  background: var(--kt-mist);
+  padding: clamp(28px, 5vw, 56px) 0 clamp(56px, 8vw, 110px);
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* the moving track = two identical groups side by side, shifted -50% for a seamless loop */
+.mq__track {
+  display: inline-flex;
+  width: max-content;
+  animation: mqScroll 50s linear infinite;
+}
+.mq:hover .mq__track { animation-play-state: paused; } /* optional: pause on hover */
+
+.mq__group {
+  display: inline-flex;
+  align-items: center;
+}
+.mq__item {
+  display: inline-flex;
+  align-items: center;
+  gap: clamp(24px, 3vw, 48px);
+  padding-right: clamp(24px, 3vw, 48px);
+}
+.mq__text {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: #16333B;
+  font-size: clamp(2.4rem, 7vw, 6rem);
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+.mq__icon {
+  display: inline-flex;
+  color: var(--kt-yellow);
+  font-size: clamp(2rem, 5vw, 4.4rem);
+}
+
+@keyframes mqScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* respect reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .mq__track { animation: none; }
+}

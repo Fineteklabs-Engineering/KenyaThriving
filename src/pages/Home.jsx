@@ -11,6 +11,7 @@ import News from '../components/News';
 import Newsletter from '../components/Newsletter';
 import Footer from '../components/Footer';
 import ScrollNav from '../components/ScrollNav';
+import Marquee from '../components/Marquee';
 
 export default function Home() {
   return (
@@ -30,6 +31,7 @@ export default function Home() {
       <Support />
       <Gallery />
       <Testimonials />
+      <Marquee />
       <HowWeSupport />
       <News />
       <Newsletter />

@@ -116,7 +116,7 @@ export default function ScrollNav() {
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.12 + links.length * 0.06, duration: 0.4 }}
             >
-              Volunteer
+            Donate Now
             </motion.a>
           </motion.div>
         )}
