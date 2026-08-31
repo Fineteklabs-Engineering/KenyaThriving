@@ -15,10 +15,10 @@ const links = [
 
 export default function ScrollNav() {
   const [open, setOpen] = useState(false);
-  const [show, setShow] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setShow(window.scrollY > 120);
+    const onScroll = () => setScrolled(window.scrollY > 60);
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
@@ -37,43 +37,33 @@ export default function ScrollNav() {
 
   return (
     <>
-      <AnimatePresence>
-        {show && (
-          <motion.nav
-            className="sn"
-            initial={{ y: '-100%' }}
-            animate={{ y: 0 }}
-            exit={{ y: '-100%' }}
-            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+      <nav className={`sn${scrolled ? ' is-scrolled' : ''}`}>
+        <div className="sn__inner">
+          <a href="/" className="sn__brand" aria-label="Kenya Thriving — home">
+            <img src={LOGO} alt="Kenya Thriving" className="sn__logo" />
+          </a>
+
+          {/* centred links (desktop) */}
+          <ul className="sn__links">
+            {links.map((l) => (
+              <li key={l.href}><a href={l.href}>{l.label}</a></li>
+            ))}
+          </ul>
+
+          {/* right: Volunteer button (desktop) */}
+          <a href="/become-a-volunteer" className="sn__cta">Volunteer</a>
+
+          {/* mobile hamburger */}
+          <button
+            className="sn__burger"
+            onClick={() => setOpen(true)}
+            aria-expanded={open}
+            aria-label="Open menu"
           >
-            <div className="sn__inner">
-              <a href="/" className="sn__brand" aria-label="Kenya Thriving — home">
-                <img src={LOGO} alt="Kenya Thriving" className="sn__logo" />
-              </a>
-
-              {/* centred links (desktop) */}
-              <ul className="sn__links">
-                {links.map((l) => (
-                  <li key={l.href}><a href={l.href}>{l.label}</a></li>
-                ))}
-              </ul>
-
-              {/* right: Volunteer button (desktop) */}
-              <a href="/become-a-volunteer" className="sn__cta">Volunteer</a>
-
-              {/* mobile hamburger */}
-              <button
-                className="sn__burger"
-                onClick={() => setOpen(true)}
-                aria-expanded={open}
-                aria-label="Open menu"
-              >
-                <FiMenu />
-              </button>
-            </div>
-          </motion.nav>
-        )}
-      </AnimatePresence>
+            <FiMenu />
+          </button>
+        </div>
+      </nav>
 
       {/* overlay menu (mobile) */}
       <AnimatePresence>
@@ -116,7 +106,7 @@ export default function ScrollNav() {
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.12 + links.length * 0.06, duration: 0.4 }}
             >
-            Donate Now
+              Donate Now
             </motion.a>
           </motion.div>
         )}
