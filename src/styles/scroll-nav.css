@@ -26,7 +26,7 @@
 .sn__brand { display: inline-flex; align-items: center; }
 .sn__logo { height: 40px; width: auto; }
 
-/* centred links — white over hero, dark on the white scrolled bar */
+
 .sn__links {
   display: flex; justify-content: center; align-items: center;
   gap: clamp(18px, 2.4vw, 38px);

@@ -8,7 +8,7 @@ const HEADING = 'Be Part of Something Meaningful';
 const TYPE_MS = 55; // per-character speed
 
 // ONE background image spanning the whole band — paste URL here
-const SUPPORT_BG = 'https://res.cloudinary.com/gjpfbvzb/image/upload/v1787822423/Making-masks-2023_vrq3xa.jpg';
+const SUPPORT_BG = 'https://res.cloudinary.com/gjpfbvzb/image/upload/v1788259370/IMG_9800_vjktet.jpg';
 
 const actions = [
   {

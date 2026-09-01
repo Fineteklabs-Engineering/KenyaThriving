@@ -47,7 +47,11 @@
 }
 .support__bg {
   position: absolute; inset: 0; z-index: -2;
-  background: #1c1a17 center/cover no-repeat;
+  background: #1c1a17;
+  background-image: inherit;          
+  background-size: cover;
+  background-position: center 15%;       
+  background-repeat: no-repeat;
 }
 .support__base {
   position: absolute; inset: 0; z-index: -1;
