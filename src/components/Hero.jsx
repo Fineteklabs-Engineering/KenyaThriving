@@ -15,7 +15,6 @@ const slides = [
     cta: 'Donate Now',
     ctaLink: '/donation',
   },
-  
   {
     image: 'https://res.cloudinary.com/gjpfbvzb/image/upload/v1788179983/IMG_4164-scaled_ru1pwl.webp',
     heading: 'Improving Lives of Orphaned Children in Kenya',
@@ -83,8 +82,13 @@ export default function Hero() {
           </AnimatePresence>
         </div>
 
-        {/* RIGHT — constant fundraiser promo */}
-        <div className="hero__promo">
+        {/* RIGHT — fundraiser promo (slides in on load) */}
+        <motion.div
+          className="hero__promo"
+          initial={{ opacity: 0, x: 60 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.7, ease, delay: 0.4 }}
+        >
           <span className="hero__promo-eyebrow">Upcoming Fundraiser</span>
           <div className="hero__promo-card">
             <img src={FUNDRAISER_IMG} alt="Cycling the Liverpool–Leeds Canal for Kenya" />
@@ -96,7 +100,7 @@ export default function Hero() {
           <a className="hero__promo-link" href="/donation">
             Learn More <FiArrowUpRight />
           </a>
-        </div>
+        </motion.div>
       </div>
 
       {/* slide dots */}

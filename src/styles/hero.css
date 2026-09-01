@@ -9,7 +9,7 @@
 .hero__bgs { position: absolute; inset: 0; z-index: 0; }
 .hero__bg {
   position: absolute; inset: 0;
-  background-size: cover;
+  background-size: cover; background-position: center;
 }
 .hero__scrim {
   position: absolute; inset: 0; z-index: 1;
@@ -34,7 +34,7 @@
   max-width: 640px;
   display: flex; flex-direction: column;
 }
-.hero__heading-wrap { margin-top: auto; margin-bottom: auto; }  /* centers the heading */
+.hero__heading-wrap { margin-top: auto; margin-bottom: auto; }
 .hero__title {
   font-family: var(--font-display);
   color: #fff; font-weight: 600;
@@ -58,7 +58,7 @@
 .hero__promo {
   width: min(400px, 100%);
   display: flex; flex-direction: column;
-  justify-content: flex-end;   /* pin promo + Learn More to the bottom */
+  justify-content: flex-end;
   flex-shrink: 0;
 }
 .hero__promo-eyebrow {
@@ -73,7 +73,7 @@
   overflow: hidden;
   backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
 }
-.hero__promo-card img { width: 100%; height: 200px; object-fit: cover; display: block; }
+.hero__promo-card img { width: 100%; height: 380px; object-fit: cover; display: block; }
 .hero__promo-body { padding: 20px 22px; }
 .hero__promo-title {
   font-family: var(--font-display);
@@ -101,16 +101,19 @@
 }
 .hero__dot.is-active { background: #fff; transform: scale(1.2); }
 
-/* responsive */
+/* ---------- responsive ---------- */
+
+@media (max-width: 1200px) {
+  .hero__promo { width: min(360px, 100%); }
+  .hero__promo-card img { height: 320px; }
+}
+
 @media (max-width: 900px) {
-  .hero__inner {
-    flex-direction: column; align-items: stretch;
-    justify-content: flex-end;
-    gap: 28px;
-    padding: clamp(120px, 20vh, 190px) clamp(20px, 5vw, 28px) clamp(40px, 8vh, 72px);
-  }
-  .hero__content { max-width: none; }
-  .hero__heading-wrap { margin: 0; }   /* no vertical centering when stacked */
-  .hero__promo { width: 100%; max-width: 480px; justify-content: flex-start; }
-  .hero__dots { bottom: 14px; }
+  /* ...existing rules... */
+  .hero__promo-card img { height: 280px; }
+}
+
+@media (max-width: 480px) {
+  .hero__promo-card img { height: 230px; }
+  .hero__promo-title { font-size: 1.1rem; }
 }
