@@ -109,11 +109,34 @@
 }
 
 @media (max-width: 900px) {
-  /* ...existing rules... */
-  .hero__promo-card img { height: 280px; }
+  .hero {
+    min-height: auto;                 /* let it grow with content instead of forcing 100vh */
+  }
+  .hero__inner {
+    min-height: 100svh;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-end;        /* content sits low over the hero image */
+    gap: 24px;
+    padding: clamp(110px, 16vh, 170px) clamp(20px, 5vw, 28px) clamp(70px, 10vh, 96px);
+  }
+  .hero__content { max-width: none; order: 1; }
+  .hero__heading-wrap { margin: 0; }
+
+  /* promo goes UNDER the heading/CTA, full width, reasonable image height */
+  .hero__promo {
+    order: 2;
+    width: 100%; max-width: 100%;
+    justify-content: flex-start;
+  }
+  .hero__promo-card img { height: 450px; }
+
+  /* keep dots clear of the content */
+  .hero__dots { bottom: 10px; }
 }
 
 @media (max-width: 480px) {
-  .hero__promo-card img { height: 230px; }
-  .hero__promo-title { font-size: 1.1rem; }
+  .hero__inner { padding-bottom: 84px; }
+  .hero__promo-card img { height: 350px; }
+  .hero__promo-title { font-size: 1.05rem; }
 }
