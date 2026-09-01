@@ -1,5 +1,5 @@
 .tst {
-  background: var(--kt-mist);
+  background: #F1F6EC;
   padding: clamp(56px, 7vw, 110px) clamp(28px, 4vw, 56px) clamp(56px, 7vw, 110px) clamp(28px, 5vw, 64px);
 }
 .tst__inner {

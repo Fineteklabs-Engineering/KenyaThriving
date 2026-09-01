@@ -1,5 +1,5 @@
 .mq {
-  background: var(--kt-mist);
+  background: #F1F6EC;
   padding: clamp(28px, 5vw, 56px) 0 clamp(56px, 8vw, 110px);
   overflow: hidden;
   white-space: nowrap;
