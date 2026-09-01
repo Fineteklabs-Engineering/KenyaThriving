@@ -8,8 +8,9 @@ const LOGO = '/images/logo.png';
 const links = [
   { label: 'Home',        href: '/' },
   { label: 'About Us',    href: '/about-us' },
+  { label: 'Learning Stars', href: '/learning-stars' },
   { label: 'How We Help', href: '/how-we-help' },
-  { label: 'Our Stories', href: '/inspring-stories' },
+ { label: 'Impact', href: '/inspiring-stories' },
   { label: 'Gallery',     href: '/gallery' },
 ];
 

@@ -27,15 +27,17 @@ export default function Home() {
       <ScrollNav />
       <Hero />
       <LearningStars />
+       <Impact />
       <About />
-      <Impact />
+     
       <Support />
       <Gallery />
       <Testimonials />
       <Marquee />
        <HowWeSupport />
+        <News />
       <Donate />
-      <News />
+     
       <Newsletter />
       <Footer />
   
