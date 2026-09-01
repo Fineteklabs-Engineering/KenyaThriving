@@ -5,119 +5,97 @@ import '../styles/donate.css';
 const ease = [0.22, 1, 0.36, 1];
 const PRESETS = [10, 25, 50, 100];
 
-const JUSTGIVING_URL = '#';   // paste the real JustGiving link
-const STEWARDSHIP_URL = '#';  // paste the real Stewardship link
+// section background photo
+const FEATURE_IMG = 'https://res.cloudinary.com/gjpfbvzb/image/upload/v1787834772/IMG_1305_n80m9d.jpg';
+// transparent cut-out PNG of the boy
+const BOY_IMG = 'https://res.cloudinary.com/gjpfbvzb/image/upload/v1788251362/ChatGPT_Image_Sep_1__2026__11_27_11_AM-removebg-preview_zlfonp.png';
 
 export default function Donate() {
   const [amount, setAmount] = useState(50);
-  const [first, setFirst] = useState('');
-  const [last, setLast] = useState('');
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
 
   const total = Number(amount) > 0 ? Number(amount) : 0;
 
   const onDonate = () => {
-    // wire to your payment flow later
-    console.log({ amount: total, first, last, email });
+    console.log({ amount: total, name, email });
   };
 
   return (
     <section className="dn">
+      {/* section background + overlay */}
+      <div className="dn__bg" style={{ backgroundImage: `url(${FEATURE_IMG})` }} aria-hidden="true" />
+      <div className="dn__overlay" aria-hidden="true" />
+
       <div className="dn__inner">
-        {/* LEFT — ways to give */}
-               {/* LEFT — ways to give */}
+        {/* LEFT — donation text */}
         <motion.div
-          className="dn__card dn__ways"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.2 }}
+          className="dn__text"
+          initial={{ opacity: 0, x: -40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: false, amount: 0.3 }}
           transition={{ duration: 0.6, ease }}
         >
+          <h2 className="dn__title">Make a Donation</h2>
           <p className="dn__lead">
-            You can make a real difference in the life of one child or one widow in Kenya by making a donation.
+            You may not be able to change the whole world, but you can make a real difference in the
+            life of one child or one widow in Kenya.
           </p>
-
-          <div className="dn__block">
-            <h4 className="dn__h">Donate online</h4>
-            <div className="dn__give-row">
-              <a className="dn__justgiving" href={JUSTGIVING_URL} target="_blank" rel="noopener noreferrer">
-                Donate with <strong>JustGiving</strong>
-              </a>
-              <a className="dn__stewardship" href={STEWARDSHIP_URL} target="_blank" rel="noopener noreferrer">
-                Stewardship
-              </a>
-            </div>
-          </div>
-
-          <div className="dn__block">
-            <h4 className="dn__h">By bank transfer</h4>
-            <ul className="dn__details">
-              <li>Epaphras Trust – Kenya Thriving</li>
-              <li><span>Sort Code</span> 30-93-48</li>
-              <li><span>Account No</span> 71927260</li>
-            </ul>
-          </div>
-
-          <p className="dn__note">
-            Prefer a cheque? Make it payable to Epaphras Trust / Kenya Thriving — 24 Lakeview Lane, Mytchett, Camberley, GU16 6HA.
+          <p className="dn__lead">
+            Every gift funds school fees, uniforms and learning materials — and <strong>100% reaches
+            the children</strong> we support.
           </p>
         </motion.div>
 
-        {/* RIGHT — donation form */}
+        {/* RIGHT — form (taller than section) + boy on top */}
         <motion.div
-          className="dn__card dn__form"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.2 }}
+          className="dn__panel"
+          initial={{ opacity: 0, x: 40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: false, amount: 0.3 }}
           transition={{ duration: 0.6, ease, delay: 0.1 }}
         >
-          <h3 className="dn__title">Your Donation</h3>
+          {BOY_IMG && <img className="dn__boy" src={BOY_IMG} alt="" aria-hidden="true" />}
 
-          <div className="dn__amount">
-            <span className="dn__currency">£</span>
-            <input
-              type="number" min="1" inputMode="decimal"
-              className="dn__amount-input"
-              value={amount}
-              onChange={(e) => setAmount(e.target.value)}
-              aria-label="Donation amount"
-            />
-          </div>
-
-          <div className="dn__presets">
-            {PRESETS.map((v) => (
-              <button
-                key={v}
-                type="button"
-                className={`dn__preset${Number(amount) === v ? ' is-active' : ''}`}
-                onClick={() => setAmount(v)}
-              >
-                £{v.toFixed(2)}
-              </button>
-            ))}
-          </div>
-
-          <h3 className="dn__title dn__title--sep">Personal Info</h3>
-
-          <div className="dn__row">
-            <label className="dn__field">
-              <span>First Name <b>*</b></span>
-              <input value={first} onChange={(e) => setFirst(e.target.value)} placeholder="First Name" />
+          <div className="dn__card">
+            <label className="dn__amount-wrap">
+              <span className="dn__amount-label">Your donation</span>
+              <div className="dn__amount">
+                <span className="dn__currency">£</span>
+                <input
+                  type="number" min="1" inputMode="decimal"
+                  className="dn__amount-input"
+                  value={amount}
+                  onChange={(e) => setAmount(e.target.value)}
+                  aria-label="Donation amount"
+                />
+              </div>
             </label>
-            <label className="dn__field">
-              <span>Last Name <b>*</b></span>
-              <input value={last} onChange={(e) => setLast(e.target.value)} placeholder="Last Name" />
-            </label>
+
+            <div className="dn__presets">
+              {PRESETS.map((v) => (
+                <button
+                  key={v}
+                  type="button"
+                  className={`dn__preset${Number(amount) === v ? ' is-active' : ''}`}
+                  onClick={() => setAmount(v)}
+                >
+                  £{v}
+                </button>
+              ))}
+            </div>
+
+            <div className="dn__field">
+              <input value={name} onChange={(e) => setName(e.target.value)} placeholder="Name" aria-label="Name" />
+            </div>
+            <div className="dn__field">
+              <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" aria-label="Email" />
+            </div>
+
+            <p className="dn__total">Donation Total: <strong>£{total.toFixed(2)}</strong></p>
+
+            <button type="button" className="dn__submit" onClick={onDonate}>Donate Now</button>
           </div>
-
-          <label className="dn__field">
-            <span>Email Address <b>*</b></span>
-            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email Address" />
-          </label>
-
-          <p className="dn__total">Donation Total: <strong>£{total.toFixed(2)}</strong></p>
-
-          <button type="button" className="dn__submit" onClick={onDonate}>Donate Now</button>
         </motion.div>
       </div>
     </section>
