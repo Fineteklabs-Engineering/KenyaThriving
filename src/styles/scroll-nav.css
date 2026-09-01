@@ -24,7 +24,7 @@
   padding-right: clamp(28px, 4vw, 56px);
 }
 .sn__brand { display: inline-flex; align-items: center; }
-.sn__logo { height: 32px; width: auto; }
+.sn__logo { height: 40px; width: auto; }
 
 /* centred links — white over hero, dark on the white scrolled bar */
 .sn__links {
