@@ -73,7 +73,7 @@
   overflow: hidden;
   backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
 }
-.hero__promo-card img { width: 100%; height: 380px; object-fit: cover; display: block; }
+.hero__promo-card img { width: 100%; height: 500px; object-fit: cover; display: block; }
 .hero__promo-body { padding: 20px 22px; }
 .hero__promo-title {
   font-family: var(--font-display);
