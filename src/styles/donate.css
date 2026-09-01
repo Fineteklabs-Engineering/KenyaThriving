@@ -136,5 +136,7 @@
     margin-top: 70px;                /* room for the boy above */
     margin-bottom: -50px;            /* still sticks out the bottom a bit */
   }
-  .dn__boy { width: min(66%, 290px); top: -56px; }
+  .dn__boy { width: min(66%, 290px); top: -100px; 
+  left: 70%;
+  }
 }
