@@ -44,7 +44,7 @@ export default function ScrollNav() {
 
   return (
     <>
-      {/* probe pinned to the very top of the page (in normal flow) */}
+   
       <div
         ref={probeRef}
         aria-hidden="true"

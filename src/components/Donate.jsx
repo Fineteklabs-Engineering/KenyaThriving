@@ -6,7 +6,7 @@ const ease = [0.22, 1, 0.36, 1];
 const PRESETS = [10, 25, 50, 100];
 
 // section background photo
-const FEATURE_IMG = 'https://res.cloudinary.com/gjpfbvzb/image/upload/v1787834772/IMG_1305_n80m9d.jpg';
+const FEATURE_IMG = 'https://res.cloudinary.com/gjpfbvzb/image/upload/v1787900942/WhatsApp_Image_2026-08-28_at_08.29.18_hgewaf.jpg';
 // transparent cut-out PNG of the boy
 const BOY_IMG = 'https://res.cloudinary.com/gjpfbvzb/image/upload/v1788251362/ChatGPT_Image_Sep_1__2026__11_27_11_AM-removebg-preview_zlfonp.png';
 
