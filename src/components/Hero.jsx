@@ -12,8 +12,8 @@ const slides = [
   {
     image: 'https://res.cloudinary.com/gjpfbvzb/image/upload/v1787834772/IMG_1305_n80m9d.jpg',
     heading: 'Making a Difference Where It Counts',
-    cta: 'Become a Volunteer',
-    ctaLink: '/become-a-volunteer',
+    cta: 'Donate Now',
+    ctaLink: '/donation',
   },
   
   {

@@ -34,7 +34,7 @@ export default function LearningStars() {
             way - school fees, uniforms and learning materials, plus mentorship, counselling and
             life skills.
           </p>
-          <img className="ls__art" src="https://res.cloudinary.com/gjpfbvzb/image/upload/v1787750985/Gemini_Generated_Image_okdpi8okdpi8okdp-removebg-preview_garcxu.png" alt="" aria-hidden="true" />
+          <img className="ls__art" src="https://res.cloudinary.com/gjpfbvzb/image/upload/v1788245048/ChatGPT_Image_Sep_1_2026_09_40_02_AM_y8gwfm.png" alt="" aria-hidden="true" />
         </motion.div>
 
         <motion.div

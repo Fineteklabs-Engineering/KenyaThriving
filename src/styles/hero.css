@@ -9,7 +9,7 @@
 .hero__bgs { position: absolute; inset: 0; z-index: 0; }
 .hero__bg {
   position: absolute; inset: 0;
-  background-size: cover; 
+  background-size: cover;
 }
 .hero__scrim {
   position: absolute; inset: 0; z-index: 1;
@@ -56,34 +56,34 @@
 
 /* RIGHT: fundraiser promo, pinned to the bottom */
 .hero__promo {
-  width: min(330px, 100%);
+  width: min(400px, 100%);
   display: flex; flex-direction: column;
   justify-content: flex-end;   /* pin promo + Learn More to the bottom */
   flex-shrink: 0;
 }
 .hero__promo-eyebrow {
-  color: #fff; font-weight: 600; font-size: .78rem;
+  color: #fff; font-weight: 600; font-size: .82rem;
   text-transform: uppercase; letter-spacing: .1em;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
 .hero__promo-card {
   background: rgba(255,255,255,.1);
   border: 1px solid rgba(255,255,255,.18);
-  border-radius: var(--r-md);
+  border-radius: var(--r-lg);
   overflow: hidden;
   backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
 }
-.hero__promo-card img { width: 100%; height: 150px; object-fit: cover; display: block; }
-.hero__promo-body { padding: 14px 16px; }
+.hero__promo-card img { width: 100%; height: 200px; object-fit: cover; display: block; }
+.hero__promo-body { padding: 20px 22px; }
 .hero__promo-title {
   font-family: var(--font-display);
-  color: #fff; font-weight: 600; font-size: .98rem; line-height: 1.25;
+  color: #fff; font-weight: 600; font-size: 1.2rem; line-height: 1.25;
 }
-.hero__promo-meta { color: rgba(255,255,255,.7); font-size: .82rem; margin-top: 4px; }
+.hero__promo-meta { color: rgba(255,255,255,.75); font-size: .9rem; margin-top: 6px; }
 .hero__promo-link {
   display: inline-flex; align-items: center; gap: 8px; align-self: flex-start;
-  margin-top: 14px;
-  color: #fff; font-weight: 700; font-size: .92rem;
+  margin-top: 18px;
+  color: #fff; font-weight: 700; font-size: .98rem;
 }
 .hero__promo-link svg { color: var(--kt-orange); transition: transform .25s; }
 .hero__promo-link:hover svg { transform: translate(3px, -3px); }
@@ -111,6 +111,6 @@
   }
   .hero__content { max-width: none; }
   .hero__heading-wrap { margin: 0; }   /* no vertical centering when stacked */
-  .hero__promo { width: 100%; max-width: 420px; justify-content: flex-start; }
+  .hero__promo { width: 100%; max-width: 480px; justify-content: flex-start; }
   .hero__dots { bottom: 14px; }
 }
