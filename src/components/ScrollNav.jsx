@@ -63,7 +63,7 @@ export default function ScrollNav() {
             ))}
           </ul>
 
-          <a href="/become-a-volunteer" className="sn__cta">Volunteer</a>
+        <a href="/donation" className="sn__cta">Donate</a>
 
           <button
             className="sn__burger"
