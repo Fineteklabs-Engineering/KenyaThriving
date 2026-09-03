@@ -6,7 +6,7 @@ import '../styles/learning-stars.css';
 
 const ease = [0.22, 1, 0.36, 1];
 const bounce = { type: 'spring', stiffness: 140, damping: 12, mass: 0.9 };
-const YOUTUBE_ID = 'GX4umtP9EaM';
+const YOUTUBE_ID = 'd70S3kM38aY';
 
 // pattern background — paste your image URL
 const PATTERN_BG = 'https://pub-69c28885ad5a46889ef25035975f7ba1.r2.dev/4090026_88332.jpg';

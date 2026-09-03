@@ -1,0 +1,161 @@
+.ah {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--kt-petrol);      /* fallback while video loads / if it fails */
+
+  /* shared insets — card + sound button read from these so they stay aligned */
+  --ah-pl: clamp(48px, 8vw, 120px);  /* left: matches hero content padding exactly */
+  --ah-pr: clamp(28px, 5vw, 64px);   /* right: matches navbar rhythm */
+  --ah-pb: clamp(40px, 6.5vh, 80px); /* bottom: card + button dropped lower */
+}
+
+.ah__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+  animation: ah-kenburns 22s ease-in-out infinite alternate;
+}
+@keyframes ah-kenburns {
+  from { transform: scale(1); }
+  to   { transform: scale(1.08); }
+}
+
+.ah__scrim {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(to top, rgba(22,51,59,.6) 0%, rgba(22,51,59,.14) 40%, transparent 66%),
+    linear-gradient(to right, rgba(22,51,59,.32) 0%, transparent 52%);
+}
+
+/* keep the transparent white navbar readable over a bright video */
+.ah__topscrim {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 160px;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(to bottom, rgba(0,0,0,.38), transparent);
+}
+
+.ah__inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding: 0 var(--ah-pr) var(--ah-pb) var(--ah-pl);
+}
+
+.ah__card {
+  max-width: 430px;
+  padding: clamp(18px, 1.8vw, 24px) clamp(24px, 2.4vw, 32px);
+  border-radius: var(--r-lg);
+  background: rgba(255,255,255,.52);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,.55);
+  box-shadow: 0 24px 60px -24px rgba(22,51,59,.5);
+}
+
+.ah__title {
+  font-family: var(--font-display);   /* ← swap to your heading var if not --font-display */
+  color: var(--kt-petrol);
+  font-size: clamp(1.85rem, 3.2vw, 2.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  font-weight: 800;
+}
+
+.ah__desc {
+  margin-top: 12px;
+  max-width: 40ch;
+  color: var(--kt-muted);
+  font-size: clamp(.95rem, 1.1vw, 1.02rem);
+  line-height: 1.5;
+}
+
+.ah__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 22px;
+  padding: 13px 22px;
+  border-radius: 14px;
+  background: var(--kt-yellow);
+  color: var(--kt-petrol);
+  font-weight: 700;
+  font-size: .98rem;
+  box-shadow: 0 10px 24px -10px rgba(239,200,20,.7);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.ah__cta svg { font-size: 1.1rem; transition: transform .2s ease; }
+.ah__cta:hover { transform: translateY(-2px); box-shadow: 0 16px 30px -12px rgba(239,200,20,.85); }
+.ah__cta:hover svg { transform: translateX(3px); }
+
+/* sound toggle — bottom-right, bottom edge aligned to the card via --ah-pb/--ah-pr */
+.ah__sound {
+  position: absolute;
+  right: var(--ah-pr);
+  bottom: var(--ah-pb);
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 999px;
+  color: var(--kt-petrol);
+  background: rgba(255,255,255,.52);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,.55);
+  box-shadow: 0 12px 30px -12px rgba(22,51,59,.5);
+  font-size: 1.2rem;
+  transition: transform .2s ease, background .2s ease;
+}
+.ah__sound:hover { transform: translateY(-2px) scale(1.05); background: rgba(255,255,255,.88); }
+
+/* attention pulse while muted */
+.ah__sound::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 999px;
+  border: 2px solid var(--kt-yellow);
+  opacity: 0;
+  pointer-events: none;
+}
+.ah__sound--muted::after { animation: ah-sound-pulse 2.4s ease-out infinite; }
+@keyframes ah-sound-pulse {
+  0%   { transform: scale(1);    opacity: .7; }
+  100% { transform: scale(1.35); opacity: 0; }
+}
+
+@media (max-width: 640px) {
+  .ah { min-height: 100svh; }
+  .ah__inner { padding-left: 22px; padding-right: 22px; }
+  .ah__card {
+    max-width: none;
+    background: rgba(255,255,255,.8);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+  }
+  .ah__desc { max-width: none; }
+
+  /* full-width card would sit under a bottom-right button → move it up top-right */
+  .ah__sound {
+    bottom: auto;
+    top: clamp(74px, 12vh, 92px);
+    right: 18px;
+    width: 46px;
+    height: 46px;
+    font-size: 1.05rem;
+  }
+}
