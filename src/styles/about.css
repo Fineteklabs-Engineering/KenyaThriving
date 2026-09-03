@@ -1,75 +1,128 @@
 .about {
   position: relative;
-  background: var(--kt-mist);
-  min-height: 100vh; min-height: 100svh;
+  background: var(--kt-white);
   overflow: hidden;
-  display: flex; flex-direction: column; align-items: center;
-  padding: clamp(56px, 8vw, 96px) clamp(20px, 5vw, 48px) 0;
   isolation: isolate;
+  padding: clamp(64px, 9vw, 130px) clamp(20px, 5vw, 64px);
 }
 
-/* wiggly-lines background image */
-.about__bg {
-  position: absolute; inset: 0; z-index: 0;
-  background-repeat: no-repeat;
-  background-position: center bottom;
-  background-size: cover;
-  pointer-events: none;
+/* decorative grey mark, top-left */
+.about__mark {
+  position: absolute; top: clamp(-30px, -2vw, -10px); left: clamp(-40px, -3vw, -20px);
+  width: clamp(160px, 18vw, 300px); height: auto;
+  opacity: .12; z-index: 0; pointer-events: none;
 }
-.about__waves path { fill: none; stroke-width: 2; stroke-linecap: round; }
 
-/* content */
-.about__content {
-  position: relative; z-index: 2;
-  text-align: center; max-width: 840px;
-  display: flex; flex-direction: column; align-items: center;
+.about__inner {
+  position: relative; z-index: 1;
+  max-width: 1200px; margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(40px, 6vw, 90px);
+  align-items: center;
 }
+
+/* ---------- LEFT ---------- */
+.about__content { max-width: 560px; }
 .about__eyebrow {
   display: inline-flex; align-items: center; gap: 8px;
-  background: var(--kt-white); color: var(--kt-ink);
-  font-size: .84rem; font-weight: 600;
+  background: #fff; color: var(--kt-petrol);
+  border: 1px solid var(--kt-line);
+  font-size: .82rem; font-weight: 600;
   padding: 9px 18px; border-radius: var(--r-pill);
-  box-shadow: 0 6px 18px -10px rgba(42,52,58,.35);
+  box-shadow: 0 6px 18px -12px rgba(22,51,59,.3);
 }
-.about__eyebrow svg { color: var(--kt-orange); font-size: 1rem; }
+.about__eyebrow svg { color: var(--kt-yellow); font-size: 1rem; }
 .about__title {
-  font-family: var(--font-display);
-  font-weight: 600; color: var(--kt-ink);
-  font-size: clamp(1.9rem, 4.4vw, 3.3rem);
-  line-height: 1.14; letter-spacing: -0.01em;
-  text-wrap: balance;
-  margin-top: 22px;
+  font-family: var(--font-body);
+  font-weight: 800; color: var(--kt-petrol);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  line-height: 1.08; letter-spacing: -0.02em;
+  margin-top: 20px;
 }
+.about__lead {
+  color: var(--kt-muted);
+  font-size: 1rem; line-height: 1.7;
+  margin-top: 18px; max-width: 46ch;
+}
+
+/* feature list */
+.about__features { display: flex; flex-direction: column; gap: 22px; margin-top: 30px; }
+.about__feature { display: flex; gap: 16px; align-items: flex-start; }
+.about__feature-icon {
+  flex-shrink: 0;
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 48px; height: 48px; border-radius: 14px;
+  background: rgba(239,200,20,.16);
+  color: var(--kt-yellow); font-size: 1.3rem;
+}
+.about__feature-title {
+  font-family: var(--font-body); font-weight: 700; color: var(--kt-petrol);
+  font-size: 1.02rem;
+}
+.about__feature-text {
+  color: var(--kt-muted);
+  font-size: .92rem; line-height: 1.55;
+  margin-top: 4px; max-width: 42ch;
+}
+
 .about__btn {
-  display: inline-flex; align-items: center;
-  margin-top: 28px;
-  background: var(--kt-ink); color: var(--kt-white);
-  font-weight: 600; font-size: 1rem;
-  padding: 15px 32px; border-radius: var(--r-pill);
-  transition: transform .25s, background .25s, box-shadow .25s;
+  display: inline-flex; align-items: center; gap: 12px;
+  margin-top: 34px;
+  background: var(--kt-petrol); color: #fff;
+  font-weight: 700; font-size: 1rem;
+  padding: 10px 10px 10px 28px; border-radius: var(--r-pill);
+  transition: transform .25s, filter .25s;
 }
-.about__btn:hover {
-  transform: translateY(-2px);
-  background: #1c2429;
-  box-shadow: 0 14px 26px -12px rgba(28,36,41,.5);
+.about__btn-ic {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 38px; height: 38px; border-radius: 50%;
+  background: var(--kt-yellow); color: var(--kt-petrol); font-size: 1rem;
+  transition: transform .25s;
 }
+.about__btn:hover { transform: translateY(-2px); filter: brightness(1.06); }
+.about__btn:hover .about__btn-ic { transform: translateX(2px); }
 
-/* bottom image */
-.about__image {
-  position: relative; z-index: 1;
-  margin-top: auto;
-  width: 100%;
-  display: flex; justify-content: center;
-  pointer-events: none;
+/* ---------- RIGHT ---------- */
+.about__media { position: relative; }
+.about__photo {
+  border-radius: clamp(16px, 2vw, 26px);
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  background: var(--kt-sand);
+  box-shadow: 0 40px 70px -34px rgba(22,51,59,.4);
 }
+.about__photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-.about__image img { width: clamp(300px, 42vw, 500px); height: auto; display: block; }
-
-@media (min-width: 1440px) {
-  .about__image img { width: clamp(540px, 44vw, 720px); }
+/* floating volunteer badge */
+.about__badge {
+  position: absolute; left: clamp(-8px, -1vw, 0px); bottom: clamp(28px, 8%, 64px);
+  background: #fff;
+  border-radius: 16px;
+  padding: 16px 20px;
+  box-shadow: 0 24px 50px -24px rgba(22,51,59,.5);
 }
+.about__badge-title {
+  font-family: var(--font-body); font-weight: 700; color: var(--kt-petrol);
+  font-size: 1rem; margin-bottom: 10px;
+}
+.about__avatars { display: flex; }
+.about__avatar {
+  width: 34px; height: 34px; border-radius: 50%;
+  border: 2px solid #fff;
+  background: var(--kt-yellow) center/cover no-repeat;
+  margin-left: -10px;
+}
+.about__avatar:first-child { margin-left: 0; }
 
-@media (max-width: 760px) {
-  .about { min-height: auto; padding-bottom: 0; }
-  .about__image img { width: min(88%, 420px); }
+/* ---------- responsive ---------- */
+@media (max-width: 900px) {
+  .about__inner { grid-template-columns: 1fr; gap: 44px; }
+  .about__content { max-width: none; }
+  .about__media { max-width: 480px; margin: 0 auto; width: 100%; }
+}
+@media (max-width: 480px) {
+  .about__title { font-size: clamp(1.8rem, 8vw, 2.4rem); }
+  .about__badge { padding: 12px 16px; }
+  .about__avatar { width: 30px; height: 30px; }
 }

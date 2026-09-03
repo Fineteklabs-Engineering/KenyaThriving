@@ -26,9 +26,10 @@ export default function Home() {
       </Helmet>
       <ScrollNav />
       <Hero />
+       <About />
       <LearningStars />
        <Impact />
-      <About />
+     
      
       <Support />
       <Gallery />
