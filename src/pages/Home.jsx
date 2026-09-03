@@ -34,7 +34,7 @@ export default function Home() {
       <Support />
       <Gallery />
       <Testimonials />
-      <Marquee />
+    
        <HowWeSupport />
         <News />
       <Donate />
