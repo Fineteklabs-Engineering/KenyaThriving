@@ -4,7 +4,7 @@ import '../styles/how-we-support.css';
 
 const ease = [0.22, 1, 0.36, 1];
 
-const SUPPORT_BG = 'https://res.cloudinary.com/gjpfbvzb/image/upload/v1788173581/ChatGPT_Image_Aug_31_2026_01_52_37_PM_yftpmi.png';
+const SUPPORT_BG = 'https://res.cloudinary.com/gjpfbvzb/image/upload/v1787834772/IMG_1305_n80m9d.jpg';
 
 export default function HowWeSupport() {
   return (

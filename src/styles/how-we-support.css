@@ -1,8 +1,8 @@
 .hws {
-  background: var(--kt-mist);
+  background: var(--kt-petrol);
 }
 
-/* image block (torn edge is baked into the image now) */
+/* image block with a petrol overlay (image stays faintly visible) */
 .hws__clip {
   position: relative;
   isolation: isolate;
@@ -12,9 +12,17 @@
   overflow: hidden;
 }
 
+/* background image */
 .hws__bg {
   position: absolute; inset: 0; z-index: -2;
-  background: #2a2a28 center/cover no-repeat;
+  background: #16333B center/cover no-repeat;
+}
+.hws__clip::before {
+  content: "";
+  position: absolute; inset: 0; z-index: -1;
+  background:
+    linear-gradient(90deg, rgba(22,51,59,.98) 0%, rgba(22,51,59,.94) 45%, rgba(22,51,59,.86) 100%),
+    linear-gradient(180deg, rgba(22,51,59,.5) 0%, rgba(22,51,59,.2) 40%, rgba(22,51,59,.6) 100%);
 }
 
 .hws__inner {
@@ -22,32 +30,32 @@
   display: flex; justify-content: flex-end;   /* card to the far right */
 }
 
-/* translucent dark card, far right */
+/* translucent WHITE card */
 .hws__card {
   width: min(420px, 100%);
-  background: rgba(15,18,20,.52);
-  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.14);
+  border: 1px solid rgba(255,255,255,.28);
   border-radius: clamp(14px, 1.6vw, 20px);
   padding: clamp(28px, 3vw, 44px);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   color: #fff;
 }
 .hws__eyebrow {
   display: inline-block;
-  color: var(--kt-orange);
+  color: var(--kt-yellow);
   font-weight: 700; font-size: .8rem;
   letter-spacing: .14em; text-transform: uppercase;
 }
 .hws__title {
-  font-family: var(--font-display);
-  font-weight: 600; color: #fff;
+  font-family: var(--font-body);
+  font-weight: 800; color: #fff;
   font-size: clamp(1.7rem, 2.6vw, 2.6rem);
   line-height: 1.12; letter-spacing: -0.01em;
   margin-top: 16px;
 }
 .hws__text {
-  color: rgba(255,255,255,.8);
+  color: rgba(255,255,255,.9);
   font-size: clamp(.92rem, 1vw, 1rem); line-height: 1.65;
   margin-top: 18px;
 }
@@ -56,7 +64,7 @@
   margin-top: 26px;
   color: #fff; font-weight: 700; font-size: .95rem;
 }
-.hws__link svg { color: var(--kt-orange); transition: transform .25s; }
+.hws__link svg { color: var(--kt-yellow); transition: transform .25s; }
 .hws__link:hover svg { transform: translate(3px, -3px); }
 
 /* responsive */

@@ -34,10 +34,11 @@ export default function Home() {
       <Support />
       <Gallery />
       <Testimonials />
+       <Donate />
     
-       <HowWeSupport />
+      
         <News />
-      <Donate />
+
      
       <Newsletter />
       <Footer />
