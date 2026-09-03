@@ -1,11 +1,24 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { FiStar, FiX } from 'react-icons/fi';
 import { FaPlay } from 'react-icons/fa';
+import { FiX } from 'react-icons/fi';
 import '../styles/learning-stars.css';
 
 const ease = [0.22, 1, 0.36, 1];
+const bounce = { type: 'spring', stiffness: 140, damping: 12, mass: 0.9 };
 const YOUTUBE_ID = 'GX4umtP9EaM';
+
+// pattern background — paste your image URL
+const PATTERN_BG = 'https://pub-69c28885ad5a46889ef25035975f7ba1.r2.dev/4090026_88332.jpg';
+// the two side images
+const LEFT_IMG = 'https://res.cloudinary.com/gjpfbvzb/image/upload/v1787834772/IMG_1305_n80m9d.jpg';
+const RIGHT_IMG = 'https://res.cloudinary.com/gjpfbvzb/image/upload/v1788179983/IMG_4164-scaled_ru1pwl.webp';
+
+const features = [
+  { title: 'Enrolled in Boarding Schools', text: 'We place orphaned and vulnerable children in reputable boarding schools.' },
+  { title: 'Fully Supported', text: 'School fees, uniforms, books and learning materials — all covered.' },
+  { title: 'Mentored to Thrive', text: 'Mentorship, counselling and life skills for lasting change.' },
+];
 
 const stats = [
   { value: '51',   label: 'Children Supported' },
@@ -18,84 +31,88 @@ export default function LearningStars() {
 
   return (
     <section className="ls">
-      <div className="ls__inner">
-        {/* LEFT — cyan card */}
-        <motion.div
-          className="ls__card"
-          initial={{ x: -40, opacity: 0 }}
-          whileInView={{ x: 0, opacity: 1 }}
-          viewport={{ once: false, amount: 0.3 }}
-          transition={{ duration: 0.7, ease }}
-        >
-          <span className="ls__eyebrow"><FiStar /> Learning Stars</span>
-          <h2 className="ls__title">Empowering Lives Through Education</h2>
-          <p className="ls__text">
-            We place orphaned and vulnerable children in boarding schools and support them all the
-            way - school fees, uniforms and learning materials, plus mentorship, counselling and
-            life skills.
-          </p>
-          <img className="ls__art" src="https://res.cloudinary.com/gjpfbvzb/image/upload/v1788245048/ChatGPT_Image_Sep_1_2026_09_40_02_AM_y8gwfm.png" alt="" aria-hidden="true" />
-        </motion.div>
+      {/* pattern + white overlay */}
+      <div className="ls__pattern" style={PATTERN_BG ? { backgroundImage: `url(${PATTERN_BG})` } : undefined} aria-hidden="true" />
+      <div className="ls__wash" aria-hidden="true" />
 
-        <motion.div
-          className="ls__media"
-          initial={{ x: 40, opacity: 0 }}
-          whileInView={{ x: 0, opacity: 1 }}
-          viewport={{ once: false, amount: 0.3 }}
-          transition={{ duration: 0.7, ease, delay: 0.1 }}
-        >
-          {playing ? (
-            <div className="ls__video">
+      {/* side images — bounce together + fade out on play */}
+      <motion.div
+        className="ls__side ls__side--left"
+        style={{ backgroundImage: `url(${LEFT_IMG})` }}
+        animate={{ x: playing ? '46vw' : 0, opacity: playing ? 0 : 1 }}
+        transition={bounce}
+        aria-hidden="true"
+      />
+      <motion.div
+        className="ls__side ls__side--right"
+        style={{ backgroundImage: `url(${RIGHT_IMG})` }}
+        animate={{ x: playing ? '-46vw' : 0, opacity: playing ? 0 : 1 }}
+        transition={bounce}
+        aria-hidden="true"
+      />
+
+      {/* centered content (fades out while playing) */}
+      <motion.div
+        className="ls__panel"
+        animate={{ opacity: playing ? 0 : 1 }}
+        transition={{ duration: 0.3 }}
+        style={{ pointerEvents: playing ? 'none' : 'auto' }}
+      >
+        <h2 className="ls__title">The <em>Learning Stars</em></h2>
+        <p className="ls__lead">
+          We give orphaned and vulnerable children in Kenya a place in boarding school and support
+          them all the way — from school fees and uniforms to mentorship and life skills.
+        </p>
+
+        <div className="ls__features">
+          {features.map((f) => (
+            <div className="ls__feature" key={f.title}>
+              <h3 className="ls__feature-title">{f.title}</h3>
+              <p className="ls__feature-text">{f.text}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="ls__divider" />
+
+        <div className="ls__stats">
+          {stats.map((s) => (
+            <div className="ls__stat" key={s.label}>
+              <span className="ls__stat-value">{s.value}</span>
+              <span className="ls__stat-label">{s.label}</span>
+            </div>
+          ))}
+
+          <button className="ls__playstat" onClick={() => setPlaying(true)}>
+            <span className="ls__playstat-ic"><FaPlay /></span>
+            <span className="ls__stat-label">Watch Video</span>
+          </button>
+        </div>
+      </motion.div>
+
+      {/* video (scales in bigger, over the section) */}
+      <div className="ls__videowrap">
+        <AnimatePresence>
+          {playing && (
+            <motion.div
+              className="ls__video"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              transition={{ duration: 0.5, ease, delay: 0.35 }}
+            >
               <iframe
                 src={`https://www.youtube.com/embed/${YOUTUBE_ID}?autoplay=1&rel=0`}
                 title="Learning Stars video"
-                allow="accelerated-diagnostics; autoplay; encrypted-media; picture-in-picture"
+                allow="autoplay; encrypted-media; picture-in-picture"
                 allowFullScreen
               />
               <button className="ls__close" onClick={() => setPlaying(false)} aria-label="Close video">
                 <FiX />
               </button>
-            </div>
-          ) : (
-            <>
-              <img className="ls__media-img" src="https://res.cloudinary.com/gjpfbvzb/image/upload/v1787748336/images_2_wbod3v.jpg" alt="Learning Stars children in class" />
-              <div className="ls__media-scrim" aria-hidden="true" />
-
-              <motion.button
-                className="ls__play"
-                onClick={() => setPlaying(true)}
-                aria-label="Play the Learning Stars video"
-                initial={{ scale: 0.6, opacity: 0 }}
-                whileInView={{ scale: 1, opacity: 1 }}
-                viewport={{ once: false, amount: 0.3 }}
-                transition={{ duration: 0.5, ease, delay: 0.25 }}
-                whileHover={{ scale: 1.08 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <FaPlay />
-              </motion.button>
-
-              <motion.ul
-                className="ls__stats"
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: false, amount: 0.4 }}
-                variants={{ show: { transition: { staggerChildren: 0.12, delayChildren: 0.3 } } }}
-              >
-                {stats.map((s) => (
-                  <motion.li
-                    key={s.label}
-                    variants={{ hidden: { y: 20, opacity: 0 }, show: { y: 0, opacity: 1 } }}
-                    transition={{ duration: 0.5, ease }}
-                  >
-                    <span className="ls__stat-value">{s.value}</span>
-                    <span className="ls__stat-label">{s.label}</span>
-                  </motion.li>
-                ))}
-              </motion.ul>
-            </>
+            </motion.div>
           )}
-        </motion.div>
+        </AnimatePresence>
       </div>
     </section>
   );
