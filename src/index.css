@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap');
 
 *, *::before, *::after { box-sizing: border-box; }
 * { margin: 0; }
@@ -14,34 +14,42 @@ a { color: inherit; text-decoration: none; }
 ul { list-style: none; padding: 0; }
 
 :root {
-  --kt-slate:#7D96A2; --kt-cyan:#3BBCD2; --kt-teal:#0BA3C4;
-  --kt-magenta:#D1277C; --kt-yellow:#EFC814; --kt-green:#33AB4A;
-  --kt-red:#E2212A; --kt-indigo:#383378;
-  --kt-cream:#FFF9BF; --kt-white:#FFFFFF;
-  --kt-ink:#2A343A; --kt-muted:#5F7079; --kt-line:#E6EAEC;
+  /* ---- BRAND (new, tight palette) ---- */
+  --kt-petrol:#16333B;    /* dark sections + body text on light */
+  --kt-yellow:#EFC814;    /* accent / buttons / highlights */
+  --kt-sand:#F7F2E9;      /* warm cream light background */
+  --kt-white:#FFFFFF;
 
+  /* neutrals */
+  --kt-ink:#2A343A;
+  --kt-muted:#5F7079;
+  --kt-line:#E6EAEC;
+
+  /* fonts */
   --font-display:'Fraunces', Georgia, serif;
   --font-body:'Inter', system-ui, sans-serif;
 
+  /* radius / shadow */
   --r-pill:999px; --r-lg:20px; --r-md:16px;
-  --shadow-card:0 18px 40px -18px rgba(42,52,58,.45);
-    --kt-orange:#F87B21;
-    --kt-dark:#0F1315;
-    --kt-mist:#F4FAEF;
-    --kt-haze:#EEF3F7;
-      --kt-petrol:#16333B;
+  --shadow-card:0 18px 40px -18px rgba(22,51,59,.35);
+
+  /* ---- legacy (no longer used in the redesign) ---- */
+  --kt-slate:#7D96A2; --kt-cyan:#3BBCD2; --kt-teal:#0BA3C4;
+  --kt-magenta:#D1277C; --kt-green:#33AB4A; --kt-red:#E2212A;
+  --kt-indigo:#383378; --kt-cream:#FFF9BF; --kt-orange:#F87B21;
+  --kt-dark:#0F1315; --kt-mist:#F4FAEF; --kt-haze:#EEF3F7;
 }
 
 /* ---------- base ---------- */
 body {
   font-family: var(--font-body);
-  color: var(--kt-ink);
+  color: var(--kt-petrol);
   background: var(--kt-white);
   line-height: 1.5;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
-:focus-visible { outline: 3px solid var(--kt-cyan); outline-offset: 3px; border-radius: 4px; }
+:focus-visible { outline: 3px solid var(--kt-yellow); outline-offset: 3px; border-radius: 4px; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration:.001ms !important; transition-duration:.001ms !important; }

@@ -1,119 +1,85 @@
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
-import { FiArrowRight, FiArrowUpRight } from 'react-icons/fi';
+import { motion } from 'motion/react';
+import { FiArrowRight } from 'react-icons/fi';
 import '../styles/hero.css';
 
 const ease = [0.22, 1, 0.36, 1];
-const ROTATE_MS = 6000;
 
-const FUNDRAISER_IMG = 'https://res.cloudinary.com/gjpfbvzb/image/upload/v1788112381/WhatsApp_Image_2026-08-29_at_21.37.51_iofqwa.jpg';
+const HERO_IMG = 'https://res.cloudinary.com/gjpfbvzb/image/upload/v1787743843/h4-banner05_b4y6ul.png';
 
-const slides = [
-  {
-    image: 'https://res.cloudinary.com/gjpfbvzb/image/upload/v1787834772/IMG_1305_n80m9d.jpg',
-    heading: 'Making a Difference Where It Counts',
-    cta: 'Donate Now',
-    ctaLink: '/donation',
-  },
-  {
-    image: 'https://res.cloudinary.com/gjpfbvzb/image/upload/v1788179983/IMG_4164-scaled_ru1pwl.webp',
-    heading: 'Improving Lives of Orphaned Children in Kenya',
-    cta: 'Donate Now',
-    ctaLink: '/donation',
-  },
+const stats = [
+  { value: '51',   label: 'Children Supported' },
+  { value: '46',   label: 'Partner Schools' },
+  { value: '100%', label: 'To the Children' },
+  { value: '2012', label: 'Helping Since' },
 ];
 
 export default function Hero() {
-  const [active, setActive] = useState(0);
-
-  useEffect(() => {
-    const id = setInterval(() => setActive((i) => (i + 1) % slides.length), ROTATE_MS);
-    return () => clearInterval(id);
-  }, []);
-
-  const s = slides[active];
-
   return (
     <header className="hero">
-      {/* rotating backgrounds */}
-      <div className="hero__bgs">
-        <AnimatePresence>
-          <motion.div
-            key={active}
-            className="hero__bg"
-            style={{ backgroundImage: `url(${s.image})` }}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 1 }}
-          />
-        </AnimatePresence>
-      </div>
+      <div className="hero__bg" style={{ backgroundImage: `url(${HERO_IMG})` }} aria-hidden="true" />
       <div className="hero__scrim" aria-hidden="true" />
 
       <div className="hero__inner">
-        {/* LEFT — heading (centered) + CTA (bottom) */}
-        <div className="hero__content">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={active}
-              className="hero__heading-wrap"
-              initial={{ y: 24, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: -16, opacity: 0 }}
-              transition={{ duration: 0.5, ease }}
-            >
-              <h1 className="hero__title">{s.heading}</h1>
-            </motion.div>
-          </AnimatePresence>
-
-          <AnimatePresence mode="wait">
-            <motion.a
-              key={active}
-              href={s.ctaLink}
-              className="hero__cta"
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: -12, opacity: 0 }}
-              transition={{ duration: 0.5, ease, delay: 0.05 }}
-            >
-              {s.cta} <FiArrowRight />
-            </motion.a>
-          </AnimatePresence>
-        </div>
-
-        {/* RIGHT — fundraiser promo (slides in on load) */}
         <motion.div
-          className="hero__promo"
-          initial={{ opacity: 0, x: 60 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.7, ease, delay: 0.4 }}
+          className="hero__content"
+          initial="hidden"
+          animate="show"
+          variants={{ show: { transition: { staggerChildren: 0.12, delayChildren: 0.2 } } }}
         >
-          <span className="hero__promo-eyebrow">Upcoming Fundraiser</span>
-          <div className="hero__promo-card">
-            <img src={FUNDRAISER_IMG} alt="Cycling the Liverpool–Leeds Canal for Kenya" />
-            <div className="hero__promo-body">
-              <p className="hero__promo-title">Cycling the Liverpool–Leeds Canal</p>
-              <p className="hero__promo-meta">127 miles · £5,000 target</p>
-            </div>
-          </div>
-          <a className="hero__promo-link" href="/donation">
-            Learn More <FiArrowUpRight />
-          </a>
+          <motion.span
+            className="hero__eyebrow"
+            variants={{ hidden: { y: 16, opacity: 0 }, show: { y: 0, opacity: 1 } }}
+            transition={{ duration: 0.5, ease }}
+          >
+            Every Child Deserves a Chance
+          </motion.span>
+
+          <motion.h1
+            className="hero__title"
+            variants={{ hidden: { y: 24, opacity: 0 }, show: { y: 0, opacity: 1 } }}
+            transition={{ duration: 0.6, ease }}
+          >
+            Change Lives<br />With Your Gift.
+          </motion.h1>
+
+          <motion.p
+            className="hero__text"
+            variants={{ hidden: { y: 20, opacity: 0 }, show: { y: 0, opacity: 1 } }}
+            transition={{ duration: 0.6, ease }}
+          >
+            At Kenya Thriving, we give orphaned and vulnerable children in Kenya the education, care
+            and support they need to build a brighter future.
+          </motion.p>
+
+          <motion.div
+            className="hero__actions"
+            variants={{ hidden: { y: 18, opacity: 0 }, show: { y: 0, opacity: 1 } }}
+            transition={{ duration: 0.6, ease }}
+          >
+            <a href="/donation" className="hero__btn hero__btn--primary">
+              Donate Now <span className="hero__btn-ic"><FiArrowRight /></span>
+            </a>
+            <a href="/how-we-help" className="hero__btn hero__btn--ghost">
+              Learn More <span className="hero__btn-ic"><FiArrowRight /></span>
+            </a>
+          </motion.div>
         </motion.div>
       </div>
 
-      {/* slide dots */}
-      <div className="hero__dots">
-        {slides.map((_, i) => (
-          <button
-            key={i}
-            className={`hero__dot${i === active ? ' is-active' : ''}`}
-            onClick={() => setActive(i)}
-            aria-label={`Go to slide ${i + 1}`}
-          />
+      {/* stat cards */}
+      <motion.div
+        className="hero__stats"
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease, delay: 0.5 }}
+      >
+        {stats.map((s) => (
+          <div className="hero__stat" key={s.label}>
+            <span className="hero__stat-value">{s.value}</span>
+            <span className="hero__stat-label">{s.label}</span>
+          </div>
         ))}
-      </div>
+      </motion.div>
     </header>
   );
 }

@@ -26,7 +26,6 @@
 .sn__brand { display: inline-flex; align-items: center; }
 .sn__logo { height: 40px; width: auto; }
 
-
 .sn__links {
   display: flex; justify-content: center; align-items: center;
   gap: clamp(18px, 2.4vw, 38px);
@@ -38,32 +37,32 @@
   transition: color .2s;
 }
 .sn__links a:hover { color: #fff; }
-.sn.is-scrolled .sn__links a { color: rgba(42,52,58,.85); }
-.sn.is-scrolled .sn__links a:hover { color: var(--kt-ink); }
+.sn.is-scrolled .sn__links a { color: rgba(22,51,59,.85); }
+.sn.is-scrolled .sn__links a:hover { color: var(--kt-petrol); }
 
-/* right button (orange reads on both states) */
+/* right button — yellow with petrol text (reads on both transparent + white states) */
 .sn__cta {
   display: inline-flex; align-items: center;
-  background: var(--kt-orange); color: #fff;
-  font-weight: 600; font-size: .92rem;
+  background: var(--kt-yellow); color: var(--kt-petrol);
+  font-weight: 700; font-size: .92rem;
   padding: 11px 24px; border-radius: var(--r-pill);
   transition: transform .25s, filter .25s;
   white-space: nowrap;
 }
-.sn__cta:hover { transform: translateY(-2px); filter: brightness(1.08); }
+.sn__cta:hover { transform: translateY(-2px); filter: brightness(1.05); }
 
-/* hamburger — white over hero, dark on the white scrolled bar */
+/* hamburger — white over hero, petrol on the white scrolled bar */
 .sn__burger {
   display: none;
   color: #fff; font-size: 1.5rem;
   align-items: center; justify-content: center;
 }
-.sn.is-scrolled .sn__burger { color: var(--kt-ink); }
+.sn.is-scrolled .sn__burger { color: var(--kt-petrol); }
 
 /* overlay menu */
 .sn-menu {
   position: fixed; inset: 0; z-index: 110;
-  background: var(--kt-ink);
+  background: var(--kt-petrol);
   display: flex; flex-direction: column;
   padding: 22px clamp(22px, 6vw, 80px) 48px;
 }
@@ -89,23 +88,23 @@
   font-weight: 500; line-height: 1.12; color: #fff;
   transition: color .25s, padding-left .25s;
 }
-.sn-menu__link:hover { color: var(--kt-cyan); padding-left: 12px; }
+.sn-menu__link:hover { color: var(--kt-yellow); padding-left: 12px; }
 
 .sn-menu__cta {
   align-self: flex-start;
   display: inline-flex; align-items: center; gap: 10px;
   padding: 16px 28px;
-  background: var(--kt-orange); color: #fff;
+  background: var(--kt-yellow); color: var(--kt-petrol);
   border-radius: var(--r-pill);
-  font-weight: 600; font-size: 1.05rem;
+  font-weight: 700; font-size: 1.05rem;
   transition: transform .25s, filter .25s;
 }
-.sn-menu__cta:hover { transform: translateY(-2px); filter: brightness(1.08); }
+.sn-menu__cta:hover { transform: translateY(-2px); filter: brightness(1.05); }
 
 @media (max-width: 860px) {
   .sn__inner {
     grid-template-columns: auto auto;      /* logo | hamburger */
-    justify-content: space-between;        /* push them to the edges */
+    justify-content: space-between;
     padding-left: clamp(20px, 5vw, 28px);
     padding-right: clamp(20px, 5vw, 28px);
   }

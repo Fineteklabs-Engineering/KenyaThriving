@@ -3,140 +3,129 @@
   min-height: 100vh; min-height: 100svh;
   overflow: hidden;
   isolation: isolate;
+  background: var(--kt-petrol);
 }
 
-/* rotating backgrounds */
-.hero__bgs { position: absolute; inset: 0; z-index: 0; }
+/* single background image — subject sits on the right */
 .hero__bg {
-  position: absolute; inset: 0;
-  background-size: cover; background-position: center;
+  position: absolute; inset: 0; z-index: 0;
+  background-size: cover; background-position: right center;
 }
+
+/* petrol overlay: heavy on the left, clears toward the right */
 .hero__scrim {
   position: absolute; inset: 0; z-index: 1;
-  background: linear-gradient(180deg,
-    rgba(15,18,20,.75) 0%,
-    rgba(15,18,20,.40) 22%,
-    rgba(15,18,20,.30) 50%,
-    rgba(15,18,20,.9) 100%);
+  background:
+    linear-gradient(90deg, rgba(22,51,59,.96) 0%, rgba(22,51,59,.78) 34%, rgba(22,51,59,.35) 62%, rgba(22,51,59,.10) 100%),
+    linear-gradient(180deg, rgba(22,51,59,.15) 0%, rgba(22,51,59,0) 32%, rgba(22,51,59,.4) 100%);
 }
 
-/* full-width row — paddings match ScrollNav exactly (no centered max-width) */
+/* content — more left padding */
 .hero__inner {
   position: relative; z-index: 2;
   min-height: 100vh; min-height: 100svh;
-  display: flex; align-items: stretch; justify-content: space-between;
-  gap: clamp(24px, 4vw, 64px);
-  padding: clamp(100px, 15vh, 160px) clamp(28px, 4vw, 56px) clamp(48px, 7vh, 84px) clamp(28px, 5vw, 64px);
+  display: flex; align-items: center;
+  padding: clamp(110px, 16vh, 180px) clamp(28px, 5vw, 64px) clamp(120px, 18vh, 200px) clamp(48px, 8vw, 120px);
 }
+.hero__content { max-width: 600px; color: #fff; }
 
-/* LEFT: heading centered vertically, CTA pinned to the bottom */
-.hero__content {
-  max-width: 640px;
-  display: flex; flex-direction: column;
+.hero__eyebrow {
+  display: inline-flex; align-items: center;
+  background: rgba(0,0,0,.28);
+  border: 1px solid rgba(255,255,255,.2);
+  color: var(--kt-yellow);
+  font-weight: 600; font-size: .8rem;
+  letter-spacing: .06em; text-transform: uppercase;
+  padding: 9px 18px; border-radius: var(--r-pill);
 }
-.hero__heading-wrap { margin-top: auto; margin-bottom: auto; }
 .hero__title {
-  font-family: var(--font-display);
-  color: #fff; font-weight: 600;
-  font-size: clamp(2.4rem, 5vw, 4.4rem);
-  line-height: 1.04; letter-spacing: -0.01em;
-  text-wrap: balance;
+  font-family: var(--font-body);
+  font-weight: 800; color: #fff;
+  font-size: clamp(2.6rem, 6vw, 5rem);
+  line-height: 1.02; letter-spacing: -0.02em;
+  margin-top: 22px;
 }
-.hero__cta {
+.hero__text {
+  color: rgba(255,255,255,.85);
+  font-size: clamp(1rem, 1.2vw, 1.1rem); line-height: 1.7;
+  margin-top: 20px; max-width: 48ch;
+}
+
+.hero__actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 30px; }
+.hero__btn {
   display: inline-flex; align-items: center; gap: 10px;
-  align-self: flex-start;
-  background: var(--kt-orange); color: #fff;
-  font-weight: 600; font-size: 1rem;
-  padding: 15px 32px; border-radius: var(--r-pill);
-  transition: transform .25s, filter .25s;
+  font-weight: 700; font-size: 1rem;
+  padding: 10px 10px 10px 26px; border-radius: var(--r-pill);
+  transition: transform .25s, filter .25s, background .25s;
 }
-.hero__cta svg { transition: transform .25s; }
-.hero__cta:hover { transform: translateY(-2px); filter: brightness(1.08); }
-.hero__cta:hover svg { transform: translateX(4px); }
+.hero__btn-ic {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 36px; height: 36px; border-radius: 50%; font-size: 1rem;
+  transition: transform .25s;
+}
+.hero__btn:hover .hero__btn-ic { transform: translateX(2px); }
+.hero__btn--primary { background: var(--kt-yellow); color: var(--kt-petrol); }
+.hero__btn--primary .hero__btn-ic { background: var(--kt-petrol); color: var(--kt-yellow); }
+.hero__btn--primary:hover { transform: translateY(-2px); filter: brightness(1.05); }
+.hero__btn--ghost {
+  background: rgba(255,255,255,.08); color: #fff;
+  border: 1px solid rgba(255,255,255,.35);
+}
+.hero__btn--ghost .hero__btn-ic { background: #fff; color: var(--kt-petrol); }
+.hero__btn--ghost:hover { transform: translateY(-2px); background: rgba(255,255,255,.16); }
 
-/* RIGHT: fundraiser promo, pinned to the bottom */
-.hero__promo {
-  width: min(400px, 100%);
-  display: flex; flex-direction: column;
-  justify-content: flex-end;
-  flex-shrink: 0;
-}
-.hero__promo-eyebrow {
-  color: #fff; font-weight: 600; font-size: .82rem;
-  text-transform: uppercase; letter-spacing: .1em;
-  margin-bottom: 14px;
-}
-.hero__promo-card {
-  background: rgba(255,255,255,.1);
-  border: 1px solid rgba(255,255,255,.18);
-  border-radius: var(--r-lg);
-  overflow: hidden;
-  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
-}
-.hero__promo-card img { width: 100%; height: 500px; object-fit: cover; display: block; }
-.hero__promo-body { padding: 20px 22px; }
-.hero__promo-title {
-  font-family: var(--font-display);
-  color: #fff; font-weight: 600; font-size: 1.2rem; line-height: 1.25;
-}
-.hero__promo-meta { color: rgba(255,255,255,.75); font-size: .9rem; margin-top: 6px; }
-.hero__promo-link {
-  display: inline-flex; align-items: center; gap: 8px; align-self: flex-start;
-  margin-top: 18px;
-  color: #fff; font-weight: 700; font-size: .98rem;
-}
-.hero__promo-link svg { color: var(--kt-orange); transition: transform .25s; }
-.hero__promo-link:hover svg { transform: translate(3px, -3px); }
-
-/* slide dots */
-.hero__dots {
+/* stat cards (bottom-right) — sit directly on the hero, no wrapper */
+.hero__stats {
   position: absolute; z-index: 3;
-  left: 50%; bottom: 22px; transform: translateX(-50%);
-  display: flex; gap: 10px;
+  right: clamp(20px, 4vw, 56px); bottom: clamp(24px, 5vh, 56px);
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
 }
-.hero__dot {
-  width: 10px; height: 10px; border-radius: 50%;
-  background: rgba(255,255,255,.4);
-  transition: background .25s, transform .25s;
+.hero__stat {
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+  gap: 4px;
+  min-width: clamp(90px, 9vw, 120px);
+  padding: 16px 12px;
+  background: rgba(255,255,255,.1);
+  border: 1px solid rgba(255,255,255,.16);
+  border-radius: 12px;
+  backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
 }
-.hero__dot.is-active { background: #fff; transform: scale(1.2); }
+.hero__stat-value {
+  font-family: var(--font-body);
+  font-weight: 800; color: #fff;
+  font-size: clamp(1.5rem, 2.4vw, 2.1rem); line-height: 1;
+}
+.hero__stat-label {
+  color: rgba(255,255,255,.85);
+  font-size: .72rem; font-weight: 500; line-height: 1.25;
+}
 
-/* ---------- responsive ---------- */
-
-@media (max-width: 1200px) {
-  .hero__promo { width: min(360px, 100%); }
-  .hero__promo-card img { height: 320px; }
+/* responsive */
+@media (max-width: 1100px) {
+  .hero__stats { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 900px) {
-  .hero {
-    min-height: auto;                 /* let it grow with content instead of forcing 100vh */
-  }
   .hero__inner {
-    min-height: 100svh;
-    flex-direction: column;
-    align-items: stretch;
-    justify-content: flex-end;        /* content sits low over the hero image */
-    gap: 24px;
-    padding: clamp(110px, 16vh, 170px) clamp(20px, 5vw, 28px) clamp(70px, 10vh, 96px);
+    align-items: flex-end;
+    padding: clamp(120px, 20vh, 180px) clamp(20px, 6vw, 32px) clamp(210px, 30vh, 280px) clamp(24px, 7vw, 40px);
   }
-  .hero__content { max-width: none; order: 1; }
-  .hero__heading-wrap { margin: 0; }
+  .hero__title { font-size: clamp(2.4rem, 9vw, 3.6rem); }
 
-  /* promo goes UNDER the heading/CTA, full width, reasonable image height */
-  .hero__promo {
-    order: 2;
-    width: 100%; max-width: 100%;
-    justify-content: flex-start;
+  /* stats: left-aligned with page padding, wrap naturally */
+  .hero__stats {
+    right: auto; left: clamp(20px, 6vw, 32px); transform: none;
+    display: flex; flex-wrap: wrap;
+    max-width: calc(100% - clamp(40px, 12vw, 64px));
   }
-  .hero__promo-card img { height: 450px; }
-
-  /* keep dots clear of the content */
-  .hero__dots { bottom: 10px; }
+  .hero__stat {
+    flex: 1 1 130px; min-width: 130px;
+    padding: 12px 14px;
+  }
+  .hero__stat-value { font-size: clamp(1.3rem, 5vw, 1.7rem); }
 }
 
-@media (max-width: 480px) {
-  .hero__inner { padding-bottom: 84px; }
-  .hero__promo-card img { height: 350px; }
-  .hero__promo-title { font-size: 1.05rem; }
+@media (max-width: 560px) {
+  .hero__btn { font-size: .95rem; }
 }
