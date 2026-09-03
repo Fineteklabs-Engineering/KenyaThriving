@@ -121,6 +121,9 @@
 }
 .hero__dot.is-active { background: var(--kt-yellow); transform: scale(1.2); }
 
+/* mobile hero image — center the subject instead of right-aligning */
+.hero__bg--mobile { background-position: center; }
+
 /* responsive */
 @media (max-width: 1100px) {
   .hero__stats { grid-template-columns: repeat(2, 1fr); }
