@@ -38,7 +38,7 @@ ul { list-style: none; padding: 0; }
   --kt-magenta:#D1277C; --kt-green:#33AB4A; --kt-red:#E2212A;
   --kt-indigo:#383378; --kt-cream:#FFF9BF; --kt-orange:#F87B21;
   --kt-dark:#0F1315; --kt-mist:#F4FAEF; --kt-haze:#EEF3F7;  --kt-ivory:#FCFBF8;
-    --kt-butter:#fbfaf6;
+    --kt-butter:#fbfaf6;  --kt-fog:#F2F4F5;
 }
 
 /* ---------- base ---------- */
