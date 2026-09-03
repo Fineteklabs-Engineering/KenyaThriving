@@ -1,96 +1,107 @@
 import { motion } from 'motion/react';
-import { FiImage, FiArrowRight } from 'react-icons/fi';
+import { FiHeart, FiArrowRight, FiCheck } from 'react-icons/fi';
 import '../styles/gallery.css';
 
 const ease = [0.22, 1, 0.36, 1];
 
-// paste your 6 image URLs here
-const images = ['https://res.cloudinary.com/gjpfbvzb/image/upload/v1787900942/WhatsApp_Image_2026-08-28_at_08.29.18_hgewaf.jpg', 
-'https://res.cloudinary.com/gjpfbvzb/image/upload/v1787900927/WhatsApp_Image_2026-08-28_at_08.32.30_ia3m7j.jpg', 
-'https://res.cloudinary.com/gjpfbvzb/image/upload/v1787744589/images_zqnc5m.jpg', 
-'https://res.cloudinary.com/gjpfbvzb/image/upload/v1787748336/images_2_wbod3v.jpg', 
-'https://res.cloudinary.com/gjpfbvzb/image/upload/v1787821796/Crochet-2019_b6kuwe.jpg', 
-'https://res.cloudinary.com/gjpfbvzb/image/upload/v1787821901/IMG_4354-scaled_ds3z6l.webp'];
+// 4 images — big, top-right smaller, then two small on the bottom
+const images = [
+  'https://res.cloudinary.com/gjpfbvzb/image/upload/v1787900942/WhatsApp_Image_2026-08-28_at_08.29.18_hgewaf.jpg',
+  'https://res.cloudinary.com/gjpfbvzb/image/upload/v1787900927/WhatsApp_Image_2026-08-28_at_08.32.30_ia3m7j.jpg',
+  'https://res.cloudinary.com/gjpfbvzb/image/upload/v1787821796/Crochet-2019_b6kuwe.jpg',
+  'https://res.cloudinary.com/gjpfbvzb/image/upload/v1787748336/images_2_wbod3v.jpg',
+];
 
-const rotations = [-8, 6, -5, 7, -6, 5];
-
-// each card starts stacked at the grid's centre, then flies to its slot
-const cardVariants = {
-  hidden: ({ col, row, rot }) => ({
-    x: `${(1 - col) * 110}%`,
-    y: `${(0.5 - row) * 118}%`,
-    rotate: rot,
-    scale: 0.86,
-    opacity: 1,
-  }),
-  show: {
-    x: '0%', y: '0%', rotate: 0, scale: 1, opacity: 1,
-    transition: { duration: 0.75, ease },
-  },
-};
+const features = [
+  { title: 'We Listen & Understand', text: 'We learn about the real needs of the children and communities we serve.' },
+  { title: 'We Take Action', text: 'We provide school places, learning materials, mentorship and support.' },
+  { title: 'We Create Lasting Impact', text: 'We empower children to break the cycle of poverty and build a brighter future.' },
+];
 
 export default function Gallery() {
   return (
     <section className="gallery">
-      <motion.div
-        className="gallery__head"
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: false, amount: 0.6 }}
-        variants={{ show: { transition: { staggerChildren: 0.12 } } }}
-      >
-        <motion.span
-          className="gallery__eyebrow"
-          variants={{ hidden: { y: 16, opacity: 0 }, show: { y: 0, opacity: 1 } }}
-          transition={{ duration: 0.5, ease }}
+      <div className="gallery__inner">
+        {/* LEFT */}
+        <motion.div
+          className="gallery__content"
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: false, amount: 0.3 }}
+          variants={{ show: { transition: { staggerChildren: 0.1 } } }}
         >
-          <FiImage /> Gallery
-        </motion.span>
-        <motion.h2
-          className="gallery__title"
-          variants={{ hidden: { y: 22, opacity: 0 }, show: { y: 0, opacity: 1 } }}
-          transition={{ duration: 0.6, ease }}
+          <motion.span
+            className="gallery__eyebrow"
+            variants={{ hidden: { y: 16, opacity: 0 }, show: { y: 0, opacity: 1 } }}
+            transition={{ duration: 0.5, ease }}
+          >
+            <FiHeart /> How We Work
+          </motion.span>
+
+          <motion.h2
+            className="gallery__title"
+            variants={{ hidden: { y: 22, opacity: 0 }, show: { y: 0, opacity: 1 } }}
+            transition={{ duration: 0.6, ease }}
+          >
+            Compassion in Action,<br />Change in Motion.
+          </motion.h2>
+
+          <motion.p
+            className="gallery__lead"
+            variants={{ hidden: { y: 20, opacity: 0 }, show: { y: 0, opacity: 1 } }}
+            transition={{ duration: 0.6, ease }}
+          >
+            We&apos;re dedicated to helping acts of kindness create a big impact. Here&apos;s how we
+            turn your support into real change.
+          </motion.p>
+
+          <motion.ul
+            className="gallery__features"
+            variants={{ show: { transition: { staggerChildren: 0.1 } } }}
+          >
+            {features.map((f) => (
+              <motion.li
+                key={f.title}
+                variants={{ hidden: { x: -24, opacity: 0 }, show: { x: 0, opacity: 1 } }}
+                transition={{ duration: 0.5, ease }}
+              >
+                <span className="gallery__feature-ic"><FiCheck /></span>
+                <div>
+                  <h3 className="gallery__feature-title">{f.title}</h3>
+                  <p className="gallery__feature-text">{f.text}</p>
+                </div>
+              </motion.li>
+            ))}
+          </motion.ul>
+
+          <motion.a
+            className="gallery__more"
+            href="/gallery"
+            variants={{ hidden: { y: 18, opacity: 0 }, show: { y: 0, opacity: 1 } }}
+            transition={{ duration: 0.5, ease }}
+          >
+            See More in Gallery <span className="gallery__more-ic"><FiArrowRight /></span>
+          </motion.a>
+        </motion.div>
+
+        {/* RIGHT — image mosaic */}
+        <motion.div
+          className="gallery__mosaic"
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: false, amount: 0.2 }}
+          variants={{ show: { transition: { staggerChildren: 0.1 } } }}
         >
-          Impact in Action
-        </motion.h2>
-      </motion.div>
-
-      <motion.div
-        className="gallery__grid"
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: false, amount: 0.3 }}
-        variants={{ show: { transition: { delayChildren: 0.3, staggerChildren: 0.08 } } }}
-      >
-        {images.map((src, i) => {
-          const col = i % 3;
-          const row = Math.floor(i / 3);
-          return (
-            <motion.div
-              key={i}
-              className="gallery__card"
-              custom={{ col, row, rot: rotations[i % rotations.length] }}
-              variants={cardVariants}
-              style={{ zIndex: images.length - i }}
-            >
-              {src
-                ? <img src={src} alt={`Kenya Thriving — moment ${i + 1}`} />
-                : <div className="gallery__ph" aria-hidden="true" />}
-            </motion.div>
-          );
-        })}
-      </motion.div>
-
-      <motion.a
-        className="gallery__more"
-        href="/gallery"
-        initial={{ opacity: 0, y: 18 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: false, amount: 0.6 }}
-        transition={{ duration: 0.5, ease, delay: 0.2 }}
-      >
-        See more in the gallery <FiArrowRight />
-      </motion.a>
+          <motion.div className="gallery__pic gallery__pic--a" style={{ backgroundImage: `url(${images[0]})` }}
+            variants={{ hidden: { opacity: 0, scale: .92 }, show: { opacity: 1, scale: 1 } }} transition={{ duration: .6, ease }} />
+          <motion.div className="gallery__pic gallery__pic--b" style={{ backgroundImage: `url(${images[1]})` }}
+            variants={{ hidden: { opacity: 0, scale: .92 }, show: { opacity: 1, scale: 1 } }} transition={{ duration: .6, ease }} />
+          <motion.div className="gallery__pic gallery__pic--c" style={{ backgroundImage: `url(${images[2]})` }}
+            variants={{ hidden: { opacity: 0, scale: .92 }, show: { opacity: 1, scale: 1 } }} transition={{ duration: .6, ease }} />
+          <motion.div className="gallery__pic gallery__pic--d" style={{ backgroundImage: `url(${images[3]})` }}
+            variants={{ hidden: { opacity: 0, scale: .92 }, show: { opacity: 1, scale: 1 } }} transition={{ duration: .6, ease }} />
+        </motion.div>
+      </div>
     </section>
   );
 }
