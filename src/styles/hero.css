@@ -46,10 +46,10 @@
   padding: 9px 18px; border-radius: var(--r-pill);
 }
 .hero__title {
-  font-family: var(--font-body);
-  font-weight: 800; color: #fff;
+  font-family: var(--font-display);
+  font-weight: 600; color: #fff;
   font-size: clamp(2.6rem, 6vw, 5rem);
-  line-height: 1.02; letter-spacing: -0.02em;
+  line-height: 1.04; letter-spacing: -0.01em;
   margin-top: 22px;
 }
 .hero__text {

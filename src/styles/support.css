@@ -17,10 +17,10 @@
 }
 .support__eyebrow svg { color: var(--kt-yellow); font-size: 1rem; }
 .support__title {
-  font-family: var(--font-body);
-  font-weight: 800; color: #fff;
+  font-family: var(--font-display);
+  font-weight: 600; color: #fff;
   font-size: clamp(1.9rem, 4vw, 3rem);
-  line-height: 1.12; letter-spacing: -0.02em;
+  line-height: 1.14; letter-spacing: -0.01em;
   margin-top: 18px;
 }
 .support__sub {
