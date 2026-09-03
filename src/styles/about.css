@@ -8,11 +8,10 @@
 
 /* decorative grey mark, top-left */
 .about__mark {
-  position: absolute; top: clamp(-30px, -2vw, -10px); left: clamp(-40px, -3vw, -20px);
-  width: clamp(160px, 18vw, 300px); height: auto;
+  position: absolute; top: clamp(10px, 3vw, 40px); left: clamp(8px, 3vw, 60px);
+  width: clamp(140px, 15vw, 240px); height: auto;
   opacity: .12; z-index: 0; pointer-events: none;
 }
-
 .about__inner {
   position: relative; z-index: 1;
   max-width: 1200px; margin: 0 auto;

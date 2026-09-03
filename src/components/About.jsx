@@ -5,7 +5,7 @@ import '../styles/about.css';
 const ease = [0.22, 1, 0.36, 1];
 
 // greyish decorative mark (top-left) — paste your icon URL
-const ABOUT_MARK = 'https://res.cloudinary.com/gjpfbvzb/image/upload/v1788422893/image-removebg-preview_1_ies04g.png';
+const ABOUT_MARK = 'https://res.cloudinary.com/gjpfbvzb/image/upload/v1788423293/ChatGPT_Image_Sep_3_2026_11_14_31_AM_1_mkoy0o.png';
 // the portrait image on the right
 const ABOUT_IMAGE = 'https://res.cloudinary.com/gjpfbvzb/image/upload/v1788165649/Nessy-Atieno-Grade-9-2025_vwlumk.jpg';
 // small avatars for the volunteer card (optional) — paste URLs or leave empty
