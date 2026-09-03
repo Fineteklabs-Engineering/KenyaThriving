@@ -1,89 +1,97 @@
 import { motion } from 'motion/react';
-import { FiHeart, FiArrowRight, FiBookOpen, FiPackage, FiTool, FiUsers } from 'react-icons/fi';
+import { FiHeart, FiArrowRight, FiArrowUpRight } from 'react-icons/fi';
 import '../styles/impacts.css';
 
 const ease = [0.22, 1, 0.36, 1];
 
-const LEFT_IMG = 'https://res.cloudinary.com/gjpfbvzb/image/upload/v1787821623/IMG_4235-scaled_l9tpjh.webp';
-const RIGHT_IMG = 'https://res.cloudinary.com/gjpfbvzb/image/upload/v1787821901/IMG_4354-scaled_ds3z6l.webp';
-
-const features = [
-  { icon: <FiBookOpen />, label: 'Boarding School Enrolment' },
-  { icon: <FiPackage />,  label: 'Learning Materials' },
-  { icon: <FiTool />,     label: 'Practical Skills' },
-  { icon: <FiUsers />,    label: 'Mentorship & Counselling' },
+const cards = [
+  {
+    label: 'Boarding School Enrolment',
+    color: '#0BA3C4',
+    image: 'https://res.cloudinary.com/gjpfbvzb/image/upload/v1787821623/IMG_4235-scaled_l9tpjh.webp',
+    link: '/how-we-help',
+  },
+  {
+    label: 'Learning Materials',
+    color: '#16333B',
+    image: 'https://res.cloudinary.com/gjpfbvzb/image/upload/v1787821706/IMG_4176-1-scaled_lpbuoq.webp',
+    link: '/how-we-help',
+  },
+  {
+    label: 'Practical Skills',
+    color: '#8FA31E',
+    image: 'https://res.cloudinary.com/gjpfbvzb/image/upload/v1787903109/IMG_1261_i8rwml.jpg',
+    link: '/how-we-help',
+  },
+  {
+    label: 'Mentorship & Counselling',
+    color: '#B0413E',
+    image: 'https://res.cloudinary.com/gjpfbvzb/image/upload/v1787821901/IMG_4354-scaled_ds3z6l.webp',
+    link: '/how-we-help',
+  },
 ];
 
 export default function Impact() {
   return (
     <section className="impact">
-      <div className="impact__stage">
-        {/* side photos */}
-        <div className="impact__side impact__side--left" style={{ backgroundImage: `url(${LEFT_IMG})` }} aria-hidden="true" />
-        <div className="impact__side impact__side--right" style={{ backgroundImage: `url(${RIGHT_IMG})` }} aria-hidden="true" />
-
-        {/* centered dark panel */}
-        <motion.div
-          className="impact__panel"
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: false, amount: 0.3 }}
-          variants={{ show: { transition: { staggerChildren: 0.1 } } }}
+      <motion.div
+        className="impact__head"
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: false, amount: 0.5 }}
+        variants={{ show: { transition: { staggerChildren: 0.12 } } }}
+      >
+        <motion.span
+          className="impact__eyebrow"
+          variants={{ hidden: { y: 16, opacity: 0 }, show: { y: 0, opacity: 1 } }}
+          transition={{ duration: 0.5, ease }}
         >
-          {/* TOP — eyebrow */}
-          <motion.span
-            className="impact__eyebrow"
-            variants={{ hidden: { y: 16, opacity: 0 }, show: { y: 0, opacity: 1 } }}
-            transition={{ duration: 0.5, ease }}
+          <FiHeart /> Our Impact
+        </motion.span>
+        <motion.h2
+          className="impact__title"
+          variants={{ hidden: { y: 22, opacity: 0 }, show: { y: 0, opacity: 1 } }}
+          transition={{ duration: 0.6, ease }}
+        >
+          Human Services with a<br />Global Heart.
+        </motion.h2>
+      </motion.div>
+
+      <motion.div
+        className="impact__grid"
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: false, amount: 0.2 }}
+        variants={{ show: { transition: { staggerChildren: 0.1 } } }}
+      >
+        {cards.map((c) => (
+          <motion.a
+            key={c.label}
+            href={c.link}
+            className="impact__card"
+            variants={{ hidden: { opacity: 0, y: 30 }, show: { opacity: 1, y: 0 } }}
+            transition={{ duration: 0.6, ease }}
           >
-            <FiHeart /> Our Impact
-          </motion.span>
+            <div className="impact__card-head" style={{ background: c.color }}>
+              <span className="impact__card-label">{c.label}</span>
+              <span className="impact__card-ic"><FiArrowUpRight /></span>
+            </div>
+            <div className="impact__card-media" style={{ backgroundImage: `url(${c.image})` }} aria-hidden="true" />
+          </motion.a>
+        ))}
+      </motion.div>
 
-          {/* MIDDLE — heading + checks + CTA */}
-          <div className="impact__mid">
-            <motion.h2
-              className="impact__title"
-              variants={{ hidden: { y: 22, opacity: 0 }, show: { y: 0, opacity: 1 } }}
-              transition={{ duration: 0.6, ease }}
-            >
-              We help children <span className="impact__accent">learn</span>,<br />
-              <span className="impact__accent">grow</span>, and <span className="impact__accent">thrive</span>
-            </motion.h2>
-
-            <motion.div
-              className="impact__checks"
-              variants={{ hidden: { y: 16, opacity: 0 }, show: { y: 0, opacity: 1 } }}
-              transition={{ duration: 0.5, ease }}
-            >
-              <span>✓ 51 children supported</span>
-              <span>✓ 100% reaches the children</span>
-            </motion.div>
-
-            <motion.a
-              className="impact__cta"
-              href="/how-we-help"
-              variants={{ hidden: { y: 18, opacity: 0 }, show: { y: 0, opacity: 1 } }}
-              transition={{ duration: 0.5, ease }}
-            >
-              See Our Impact <FiArrowRight />
-            </motion.a>
-          </div>
-
-          {/* BOTTOM — feature row */}
-          <motion.ul
-            className="impact__features"
-            variants={{ hidden: { opacity: 0 }, show: { opacity: 1 } }}
-            transition={{ duration: 0.5, ease, delay: 0.1 }}
-          >
-            {features.map((f) => (
-              <li key={f.label}>
-                <span className="impact__feature-icon">{f.icon}</span>
-                <span className="impact__feature-label">{f.label}</span>
-              </li>
-            ))}
-          </motion.ul>
-        </motion.div>
-      </div>
+      <motion.a
+        className="impact__bar"
+        href="/how-we-help"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false, amount: 0.5 }}
+        transition={{ duration: 0.6, ease }}
+      >
+        <span className="impact__bar-text">Ready to help them? Explore the difference we make together.</span>
+        <span className="impact__bar-cta">View All Impacts <span className="impact__bar-ic"><FiArrowRight /></span></span>
+      </motion.a>
     </section>
   );
 }
