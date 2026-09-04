@@ -3,14 +3,16 @@ import { motion, AnimatePresence } from 'motion/react';
 import { FiMenu, FiX } from 'react-icons/fi';
 import '../styles/scroll-nav.css';
 
-const LOGO = 'https://res.cloudinary.com/gjpfbvzb/image/upload/v1788506681/KenyaThrivingLogo-Light_nkkqzw.png';
+const LOGO_LIGHT = 'https://res.cloudinary.com/gjpfbvzb/image/upload/v1788506681/KenyaThrivingLogo-Light_nkkqzw.png';
+
+const LOGO_DARK = '/images/logo.png';
 
 const links = [
   { label: 'Home',        href: '/' },
   { label: 'About Us',    href: '/about-us' },
   { label: 'Learning Stars', href: '/learning-stars' },
   { label: 'How We Help', href: '/how-we-help' },
- { label: 'Impact', href: '/inspiring-stories' },
+  { label: 'Impact', href: '/inspiring-stories' },
   { label: 'Gallery',     href: '/gallery' },
 ];
 
@@ -18,7 +20,6 @@ export default function ScrollNav() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const probeRef = useRef(null);
-
 
   useEffect(() => {
     const el = probeRef.current;
@@ -44,7 +45,6 @@ export default function ScrollNav() {
 
   return (
     <>
-   
       <div
         ref={probeRef}
         aria-hidden="true"
@@ -54,7 +54,8 @@ export default function ScrollNav() {
       <nav className={`sn${scrolled ? ' is-scrolled' : ''}`}>
         <div className="sn__inner">
           <a href="/" className="sn__brand" aria-label="Kenya Thriving — home">
-            <img src={LOGO} alt="Kenya Thriving" className="sn__logo" />
+            <img src={LOGO_LIGHT} alt="Kenya Thriving" className="sn__logo sn__logo--light" />
+            <img src={LOGO_DARK} alt="" aria-hidden="true" className="sn__logo sn__logo--dark" />
           </a>
 
           <ul className="sn__links">
@@ -63,7 +64,7 @@ export default function ScrollNav() {
             ))}
           </ul>
 
-        <a href="/donation" className="sn__cta">Donate</a>
+          <a href="/donation" className="sn__cta">Donate</a>
 
           <button
             className="sn__burger"
@@ -86,7 +87,7 @@ export default function ScrollNav() {
             transition={{ duration: 0.3 }}
           >
             <div className="sn-menu__bar">
-              <img src={LOGO} alt="Kenya Thriving" className="sn-menu__logo" />
+              <img src={LOGO_LIGHT} alt="Kenya Thriving" className="sn-menu__logo" />
               <button className="sn-menu__close" onClick={() => setOpen(false)} aria-label="Close menu">
                 <FiX />
               </button>

@@ -23,8 +23,21 @@
   padding-left: clamp(28px, 5vw, 64px);
   padding-right: clamp(28px, 4vw, 56px);
 }
-.sn__brand { display: inline-flex; align-items: center; }
-.sn__logo { height: 40px; width: auto; }
+
+/* brand: stack both logos in one cell so they can crossfade */
+.sn__brand {
+  display: inline-grid;
+  place-items: center start;
+}
+.sn__logo {
+  grid-area: 1 / 1;          /* both logos occupy the same cell */
+  height: 40px; width: auto;
+  transition: opacity .3s ease;
+}
+/* light logo over the hero → dark logo on the white scrolled bar */
+.sn__logo--dark { opacity: 0; }
+.sn.is-scrolled .sn__logo--light { opacity: 0; }
+.sn.is-scrolled .sn__logo--dark  { opacity: 1; }
 
 .sn__links {
   display: flex; justify-content: center; align-items: center;
