@@ -3,6 +3,7 @@ import AboutHero from '../components/AboutHero';
 import AboutStory from '../components/AboutStory';
 import MissionVision from '../components/MissionVission';
 import Team from '../components/Team';
+import HowYouCanHelp from '../components/HowYouCanHelp';
 
 export default function About() {
   return (
@@ -18,6 +19,7 @@ export default function About() {
       <AboutStory />
       <MissionVision />
       <Team />
+      <HowYouCanHelp />
     </>
   );
 }
