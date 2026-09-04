@@ -1,0 +1,102 @@
+.lsi {
+  background: var(--kt-butter);
+  padding: clamp(72px, 11vh, 130px) clamp(28px, 6vw, 80px);
+}
+
+/* heading */
+.lsi__head {
+  max-width: 720px; margin: 0 auto clamp(44px, 6vw, 72px);
+  text-align: center; display: flex; flex-direction: column; align-items: center;
+}
+.lsi__title {
+  font-family: var(--font-display);   /* ← your section heading var if different */
+  color: var(--kt-petrol); font-weight: 600;
+  font-size: clamp(1.9rem, 4vw, 3rem); line-height: 1.12; letter-spacing: -0.01em;
+}
+.lsi__sub {
+  color: var(--kt-muted); font-size: 1rem; line-height: 1.65;
+  margin-top: 16px; max-width: 54ch;
+}
+
+/* stage */
+.lsi__stage-wrap { max-width: 1180px; margin: 0 auto; }
+.lsi__stage {
+  position: relative;
+  min-height: clamp(440px, 60vh, 600px);
+}
+
+/* image (left ~66%) */
+.lsi__media-slot {
+  position: absolute; left: 0; top: 0; bottom: 0;
+  width: 66%;
+}
+.lsi__media {
+  position: absolute; inset: 0;
+  border-radius: clamp(16px, 2vw, 26px);
+  background-size: cover; background-position: center;
+  box-shadow: 0 30px 60px -30px rgba(22,51,59,.45);
+}
+
+/* overlapping card (right ~42%, vertically centered) */
+.lsi__card-slot {
+  position: absolute; right: 0; top: 50%;
+  transform: translateY(-50%);
+  width: min(42%, 460px);
+  height: clamp(300px, 34vw, 380px);   /* fixed height → all cards match */
+}
+.lsi__card {
+  position: absolute; inset: 0;        /* fill the fixed-height slot */
+  display: flex; flex-direction: column; justify-content: center;
+  background: var(--kt-white);
+  border: 1px solid rgba(22,51,59,.06);
+  border-radius: clamp(16px, 1.8vw, 22px);
+  padding: clamp(30px, 3vw, 46px);
+  box-shadow: 0 30px 70px -28px rgba(22,51,59,.5);
+}
+
+.lsi__num {
+  display: inline-flex; align-items: center; gap: 12px;
+  color: var(--kt-petrol); opacity: .55;
+  font-weight: 700; font-size: .9rem; letter-spacing: .2em;
+}
+.lsi__num-dash { width: 28px; height: 2px; background: var(--kt-yellow); }
+.lsi__statement {
+  font-family: var(--font-display);
+  color: var(--kt-petrol); font-weight: 600;
+  font-size: clamp(1.35rem, 2.1vw, 1.95rem); line-height: 1.22;
+  margin-top: 16px;
+}
+
+/* dots */
+.lsi__dots {
+  display: flex; justify-content: center; gap: 12px;
+  margin-top: clamp(32px, 4.5vw, 52px);
+}
+.lsi__dot {
+  width: 11px; height: 11px; border-radius: 50%;
+  background: rgba(22,51,59,.22);
+  transition: background .25s, transform .25s, width .25s;
+}
+.lsi__dot.is-active {
+  background: var(--kt-yellow);
+  width: 30px; border-radius: 999px;   /* active dot stretches into a pill */
+}
+
+/* responsive — stack, card overlaps the image bottom */
+@media (max-width: 860px) {
+  .lsi__stage { min-height: 0; }
+
+  .lsi__media-slot {
+    position: static; width: 100%;
+    height: clamp(260px, 52vw, 380px);
+  }
+  .lsi__media { position: relative; inset: auto; width: 100%; height: 100%; }
+
+  .lsi__card-slot {
+    position: relative; top: auto; transform: none;
+    width: auto; height: clamp(240px, 60vw, 300px);   /* fixed height on mobile too */
+    margin: clamp(-64px, -9vw, -36px) clamp(12px, 4vw, 40px) 0;
+    z-index: 2;
+  }
+  .lsi__card { max-width: 520px; margin: 0 auto; }
+}

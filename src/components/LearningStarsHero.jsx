@@ -5,8 +5,14 @@ import '../styles/learning-stars-hero.css';
 const ease = [0.22, 1, 0.36, 1];
 const rise = { hidden: { y: 24, opacity: 0 }, show: { y: 0, opacity: 1, transition: { duration: 0.6, ease } } };
 
-// 👇 paste your hero background image URL
 const HERO_IMG = 'https://res.cloudinary.com/gjpfbvzb/image/upload/v1787744589/images_zqnc5m.jpg';
+
+// 👇 placeholder figures — swap for real Learning Stars numbers
+const stats = [
+  { value: '51',   label: 'Children Enrolled' },
+  { value: '46',   label: 'Partner Schools' },
+  { value: '100%', label: 'To the Children' },
+];
 
 export default function LearningStarsHero() {
   return (
@@ -35,9 +41,18 @@ export default function LearningStarsHero() {
             <a href="/donation" className="lsh__btn lsh__btn--primary">
               Donate Now <span className="lsh__btn-ic"><FiArrowRight /></span>
             </a>
-            <a href="/how-we-help" className="lsh__btn lsh__btn--ghost">
-              Learn More <span className="lsh__btn-ic"><FiArrowRight /></span>
-            </a>
+          </motion.div>
+
+          <motion.div
+            className="lsh__stats"
+            variants={{ show: { transition: { staggerChildren: 0.1, delayChildren: 0.15 } } }}
+          >
+            {stats.map((s) => (
+              <motion.div className="lsh__stat" key={s.label} variants={rise}>
+                <span className="lsh__stat-value">{s.value}</span>
+                <span className="lsh__stat-label">{s.label}</span>
+              </motion.div>
+            ))}
           </motion.div>
         </motion.div>
       </div>

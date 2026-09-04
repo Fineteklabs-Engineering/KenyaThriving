@@ -1,5 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 import LearningStarsHero from '../components/LearningStarsHero';
+import LearningStarsAbout from '../components/LearningStarsAbout';
+import LearningStarsImpact from '../components/LearningStarsImpact';
 
 export default function LearningStarsPage() {
   return (
@@ -12,6 +14,8 @@ export default function LearningStarsPage() {
         />
       </Helmet>
       <LearningStarsHero />
+      <LearningStarsAbout />
+      <LearningStarsImpact />
     </>
   );
 }

@@ -66,16 +66,40 @@
 .lsh__btn--primary { background: var(--kt-yellow); color: var(--kt-petrol); }
 .lsh__btn--primary .lsh__btn-ic { background: var(--kt-petrol); color: var(--kt-yellow); }
 .lsh__btn--primary:hover { transform: translateY(-2px); filter: brightness(1.05); }
-.lsh__btn--ghost {
-  background: transparent; color: var(--kt-petrol);
-  border: 1.5px solid rgba(22,51,59,.4);
+
+/* stats — bottom-right of the hero (anchored to the full-height inner) */
+.lsh__stats {
+  position: absolute;
+  right: clamp(28px, 5vw, 64px);
+  bottom: clamp(28px, 5vh, 56px);
+  z-index: 3;
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
 }
-.lsh__btn--ghost .lsh__btn-ic { background: var(--kt-petrol); color: #fff; }
-.lsh__btn--ghost:hover { transform: translateY(-2px); background: rgba(22,51,59,.06); }
+.lsh__stat {
+  display: flex; flex-direction: column; gap: 5px;
+  min-width: clamp(100px, 9vw, 132px);
+  padding: 16px 18px;
+  background: rgba(255,255,255,.72);
+  border: 1px solid rgba(255,255,255,.6);
+  border-radius: var(--r-md);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 20px 44px -24px rgba(22,51,59,.5);
+}
+.lsh__stat-value {
+  font-family: var(--font-body);
+  color: var(--kt-petrol); font-weight: 800;
+  font-size: clamp(1.5rem, 2.4vw, 2.1rem); line-height: 1;
+}
+.lsh__stat-label {
+  color: var(--kt-muted); font-weight: 500;
+  font-size: .74rem; line-height: 1.25;
+}
 
 @media (max-width: 900px) {
+  /* content stays centered; bottom padding just reserves room for the pinned stats */
   .lsh__inner {
-    padding: clamp(110px, 16vh, 160px) clamp(22px, 6vw, 32px) clamp(60px, 10vh, 90px) clamp(24px, 7vw, 40px);
+    padding: clamp(110px, 16vh, 160px) clamp(22px, 6vw, 32px) clamp(150px, 26vh, 200px) clamp(24px, 7vw, 40px);
   }
   .lsh__title { font-size: clamp(2.2rem, 9vw, 3.4rem); }
   .lsh__bg { background-position: center; }
@@ -84,4 +108,19 @@
     background: linear-gradient(180deg, rgba(255,255,255,.92) 0%, rgba(255,255,255,.5) 45%, rgba(255,255,255,.72) 100%);
   }
   .lsh__text { max-width: none; }
+
+  /* stats pinned to the bottom of the hero, full width, evenly split */
+  .lsh__stats {
+    left: clamp(22px, 6vw, 32px);
+    right: clamp(22px, 6vw, 32px);
+    bottom: clamp(24px, 5vh, 40px);
+    gap: 8px;
+  }
+  .lsh__stat {
+    min-width: 0;                /* let them shrink to fit 3-across on narrow screens */
+    padding: 12px 10px;
+    align-items: center; text-align: center;
+  }
+  .lsh__stat-value { font-size: clamp(1.15rem, 5.5vw, 1.6rem); }
+  .lsh__stat-label { font-size: .66rem; }
 }
