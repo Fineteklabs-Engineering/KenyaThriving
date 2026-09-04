@@ -1,0 +1,102 @@
+.story {
+  background: var(--kt-white);
+  padding: clamp(72px, 12vh, 140px) clamp(28px, 6vw, 80px);
+}
+
+.story__inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: clamp(32px, 5vw, 80px);
+  align-items: start;
+}
+
+/* left — eyebrow + heading */
+.story__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--kt-petrol);
+  font-weight: 700;
+  font-size: .82rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.story__dot { width: 9px; height: 9px; border-radius: 50%; background: var(--kt-yellow); }
+.story__title {
+  font-family: var(--font-display);   /* ← swap to your section heading var if it's not this */
+  color: var(--kt-petrol);
+  font-weight: 800;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  margin-top: 16px;
+}
+
+/* right — paragraph + button + stats */
+.story__text {
+  color: var(--kt-muted);
+  font-size: clamp(1rem, 1.15vw, 1.1rem);
+  line-height: 1.75;
+  max-width: 56ch;
+}
+.story__btn {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 26px;
+  padding: 12px 26px;
+  border-radius: var(--r-pill);
+  border: 1.5px solid rgba(22,51,59,.35);
+  color: var(--kt-petrol);
+  font-weight: 600;
+  font-size: .95rem;
+  transition: background .2s ease, border-color .2s ease, transform .2s ease;
+}
+.story__btn:hover {
+  background: var(--kt-petrol);
+  border-color: var(--kt-petrol);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.story__stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: clamp(28px, 4.5vh, 48px);
+}
+.story__stat {
+  flex: 1 1 140px;
+  padding: 20px 18px;
+  background: var(--kt-butter);          /* sand fill so cards read on the white section */
+  border: 1px solid rgba(22,51,59,.08); /* warm hairline instead of the cool grey line */
+  border-radius: var(--r-md);
+}
+.story__stat-value {
+  display: block;
+  font-family: var(--font-body);
+  color: var(--kt-petrol);
+  font-weight: 800;
+  font-size: clamp(1.7rem, 2.8vw, 2.3rem);
+  line-height: 1;
+}
+.story__stat-suffix {
+  font-size: .5em;
+  vertical-align: super;
+  color: var(--kt-yellow);
+  font-weight: 800;
+  margin-left: 2px;
+}
+.story__stat-label {
+  display: block;
+  margin-top: 8px;
+  color: var(--kt-muted);
+  font-size: .82rem;
+  font-weight: 500;
+}
+
+@media (max-width: 900px) {
+  .story__inner { grid-template-columns: 1fr; gap: 28px; }
+  .story__text { max-width: none; }
+}

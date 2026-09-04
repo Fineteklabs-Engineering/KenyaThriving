@@ -1,0 +1,105 @@
+.mv {
+  background: var(--kt-butter);
+  padding: clamp(72px, 12vh, 140px) clamp(28px, 6vw, 80px);
+}
+
+.mv__inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: clamp(40px, 6vw, 96px);
+  align-items: center;
+}
+
+/* left */
+.mv__media { position: relative; }
+.mv__img {
+  width: 100%;
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-card);
+}
+.mv__badge {
+  position: absolute;
+  top: clamp(24px, 4vw, 44px);
+  right: clamp(-36px, -2vw, -16px);
+  max-width: 280px;
+  padding: clamp(20px, 2.4vw, 30px);
+  background: rgb(176, 65, 62);        /* on-brand swap for the reference's coral card */
+  color: #fff;
+  border-radius: var(--r-lg);
+  box-shadow: 0 20px 44px -18px rgba(22,51,59,.5);
+}
+.mv__badge-text {
+  font-family: var(--font-display);    /* ← your section heading var if different */
+  font-weight: 700;
+  font-size: clamp(1.05rem, 1.5vw, 1.35rem);
+  line-height: 1.25;
+}
+
+.mv__lead {
+  font-family: var(--font-display);
+  color: var(--kt-petrol);
+  font-weight: 800;
+  font-size: clamp(1.4rem, 2.2vw, 1.9rem);
+  line-height: 1.2;
+  margin-top: clamp(30px, 4.5vh, 48px);
+  max-width: 24ch;
+}
+.mv__desc {
+  color: var(--kt-muted);
+  font-size: clamp(.98rem, 1.1vw, 1.05rem);
+  line-height: 1.7;
+  margin-top: 14px;
+  max-width: 46ch;
+}
+
+/* right */
+.mv__right {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(28px, 4vh, 46px);
+}
+.mv__item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+}
+.mv__icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 1.6rem;
+}
+.mv__icon--mission { background: rgb(143, 163, 30); color: var(--kt-white); }
+.mv__icon--vision  { background: rgb(11, 163, 196); color: var(--kt-white); }
+.mv__item-title {
+  font-family: var(--font-display);
+  color: var(--kt-petrol);
+  font-weight: 800;
+  font-size: clamp(1.15rem, 1.6vw, 1.4rem);
+}
+.mv__item-text {
+  color: var(--kt-muted);
+  font-size: clamp(.92rem, 1vw, 1rem);
+  line-height: 1.65;
+  max-width: 40ch;
+}
+
+@media (max-width: 900px) {
+  .mv__inner { grid-template-columns: 1fr; gap: clamp(40px, 7vh, 64px); }
+  .mv__badge {
+    right: clamp(-16px, -2vw, -8px);
+    top: clamp(16px, 3vw, 28px);
+    max-width: 240px;
+  }
+  .mv__lead, .mv__desc, .mv__item-text { max-width: none; }
+}
+
+@media (max-width: 480px) {
+  .mv__badge { max-width: 200px; padding: 16px; }
+  .mv__badge-text { font-size: 1rem; }
+}

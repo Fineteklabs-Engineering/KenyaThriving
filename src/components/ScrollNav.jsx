@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { FiMenu, FiX } from 'react-icons/fi';
 import '../styles/scroll-nav.css';
 
-const LOGO = '/images/logo.png';
+const LOGO = 'https://res.cloudinary.com/gjpfbvzb/image/upload/v1788506681/KenyaThrivingLogo-Light_nkkqzw.png';
 
 const links = [
   { label: 'Home',        href: '/' },

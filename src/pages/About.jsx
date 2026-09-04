@@ -1,5 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 import AboutHero from '../components/AboutHero';
+import AboutStory from '../components/AboutStory';
+import MissionVision from '../components/MissionVission';
 
 export default function About() {
   return (
@@ -12,6 +14,8 @@ export default function About() {
         />
       </Helmet>
       <AboutHero />
+      <AboutStory />
+      <MissionVision />
     </>
   );
 }
