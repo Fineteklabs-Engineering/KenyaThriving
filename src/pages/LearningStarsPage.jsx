@@ -1,7 +1,7 @@
 import { Helmet } from 'react-helmet-async';
-import LSHero from '../components/LsHero';
+import LearningStarsHero from '../components/LearningStarsHero';
 
-export default function LearningStars() {
+export default function LearningStarsPage() {
   return (
     <>
       <Helmet>
@@ -11,7 +11,7 @@ export default function LearningStars() {
           content="The Learning Stars Initiative gives orphaned and vulnerable children in Kenya access to quality education, care and mentorship."
         />
       </Helmet>
-      <LSHero />
+      <LearningStarsHero />
     </>
   );
 }

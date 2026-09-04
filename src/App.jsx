@@ -3,7 +3,7 @@ import { MotionConfig } from 'motion/react';
 import Layout from './components/Layout';
 import Home from './pages/Home';
 import About from './pages/About';
-import LearningStars from './pages/LearningStars';
+import LearningStarsPage from './pages/LearningStarsPage';
 
 
 export default function App() {
@@ -14,7 +14,7 @@ export default function App() {
           <Route element={<Layout />}>
             <Route index element={<Home />} />
             <Route path="about-us" element={<About />} />
-            <Route path="learning-stars" element={<LearningStars />} />
+            <Route path="learning-stars" element={<LearningStarsPage />} />
           </Route>
         </Routes>
       </BrowserRouter>

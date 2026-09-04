@@ -1,17 +1,17 @@
 import { motion } from 'motion/react';
 import { FiArrowRight } from 'react-icons/fi';
-import '../styles/ls-hero.css';
+import '../styles/learning-stars-hero.css';
 
 const ease = [0.22, 1, 0.36, 1];
 const rise = { hidden: { y: 24, opacity: 0 }, show: { y: 0, opacity: 1, transition: { duration: 0.6, ease } } };
 
+// 👇 paste your hero background image URL
+const HERO_IMG = 'https://res.cloudinary.com/gjpfbvzb/image/upload/v1787744589/images_zqnc5m.jpg';
 
-const LS_HERO_IMG = 'https://res.cloudinary.com/gjpfbvzb/image/upload/v1787744589/images_zqnc5m.jpg';
-
-export default function LSHero() {
+export default function LearningStarsHero() {
   return (
     <section className="lsh">
-      <div className="lsh__bg" style={{ backgroundImage: `url(${LS_HERO_IMG})` }} />
+      <div className="lsh__bg" style={{ backgroundImage: `url(${HERO_IMG})` }} />
       <div className="lsh__overlay" aria-hidden="true" />
 
       <div className="lsh__inner">

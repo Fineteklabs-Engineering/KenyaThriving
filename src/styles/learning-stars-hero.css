@@ -13,7 +13,7 @@
 }
 @keyframes lsh-kenburns { from { transform: scale(1); } to { transform: scale(1.07); } }
 
-
+/* light overlay — heavy white on the left for the dark text, clears toward the right */
 .lsh__overlay {
   position: absolute; inset: 0; z-index: -1;
   background:
@@ -21,6 +21,7 @@
     linear-gradient(180deg, rgba(255,255,255,.35) 0%, rgba(255,255,255,0) 26%);
 }
 
+/* content — top padding clears the fixed nav; left padding matches the homepage hero */
 .lsh__inner {
   position: relative; z-index: 1;
   min-height: 100vh; min-height: 100svh;
