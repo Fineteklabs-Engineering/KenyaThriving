@@ -114,6 +114,9 @@
 }
 .sn-menu__cta:hover { transform: translateY(-2px); filter: brightness(1.05); }
 
+/* light-hero routes: fully opaque white nav from the top */
+.sn.sn--solid.is-scrolled { background: #fff; }
+
 @media (max-width: 860px) {
   .sn__inner {
     grid-template-columns: auto auto;      /* logo | hamburger */
