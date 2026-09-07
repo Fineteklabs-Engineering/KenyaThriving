@@ -4,6 +4,7 @@ import Layout from './components/Layout';
 import Home from './pages/Home';
 import About from './pages/About';
 import LearningStarsPage from './pages/LearningStarsPage';
+import HowWeHelpPage from './pages/HowWeHelpPage';
 
 
 export default function App() {
@@ -15,6 +16,7 @@ export default function App() {
             <Route index element={<Home />} />
             <Route path="about-us" element={<About />} />
             <Route path="learning-stars" element={<LearningStarsPage />} />
+            <Route path="how-we-help" element={<HowWeHelpPage />} />
           </Route>
         </Routes>
       </BrowserRouter>
