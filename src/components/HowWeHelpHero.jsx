@@ -6,7 +6,6 @@ import '../styles/how-we-help-hero.css';
 const ease = [0.22, 1, 0.36, 1];
 const ROTATE_MS = 6000;
 
-
 const HERO_IMAGES = [
   'https://res.cloudinary.com/gjpfbvzb/image/upload/v1787861640/20260502_082654441_iOS_x4pr2g.jpg',
   'https://res.cloudinary.com/gjpfbvzb/image/upload/v1788259370/IMG_9800_vjktet.jpg',
@@ -56,20 +55,10 @@ export default function HowWeHelpHero() {
           animate="show"
           variants={{ show: { transition: { staggerChildren: 0.12, delayChildren: 0.1 } } }}
         >
-          <motion.span className="hwh__eyebrow" variants={rise}>
-            <span className="hwh__eyebrow-dot" aria-hidden="true" />
-            Together We Can Help
-          </motion.span>
-
           <motion.h1 className="hwh__title" variants={rise}>
             We Help Kenya&apos;s Children<br />
             <span className="hwh__title-accent">Learn and Thrive</span>
           </motion.h1>
-
-          <motion.p className="hwh__text" variants={rise}>
-            From school fees to mentorship, we give orphaned and vulnerable children the
-            education, care and support they need to build a brighter future.
-          </motion.p>
 
           <motion.div className="hwh__actions" variants={rise}>
             <a href="/donation" className="hwh__btn">

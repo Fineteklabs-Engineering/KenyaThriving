@@ -63,6 +63,7 @@ export default function Navbar() {
               <button className="kt-menu__close" onClick={() => setOpen(false)} aria-label="Close menu">
                 <FiX />
               </button>
+              
             </div>
 
             <nav className="kt-menu__links">

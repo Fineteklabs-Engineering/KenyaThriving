@@ -51,7 +51,7 @@ export default function Testimonials() {
             transition={{ duration: 0.6, ease }}
           >
             Orphaned at four and mistreated by those meant to care for her, Jane found love at a
-            children&apos;s home and excelled in school. A Kenya Thriving grant took her to college —
+            children&apos;s home and excelled in school. A Kenya Thriving grant took her to college -
             and in 2024 she graduated with a degree in Engineering.
           </motion.p>
 

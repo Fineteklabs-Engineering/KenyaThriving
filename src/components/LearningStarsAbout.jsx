@@ -38,7 +38,7 @@ export default function LearningStarsAbout() {
           </motion.p>
           <motion.p className="lsa__text" variants={rise}>
             Beyond the classroom, Learning Stars wraps around each child with the care they
-            need to thrive — school fees, uniforms, learning materials, nutritious meals,
+            need to thrive - school fees, uniforms, learning materials, nutritious meals,
             healthcare and mentorship. By meeting both their educational and personal needs,
             we help these children build the confidence and stability to shine, break the
             cycle of poverty, and shape a brighter future for themselves and their communities.

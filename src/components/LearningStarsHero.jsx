@@ -35,7 +35,7 @@ export default function LearningStarsHero() {
           </motion.h1>
           <motion.p className="lsh__text" variants={rise}>
             Learning Stars gives orphaned and vulnerable children in Kenya access to quality
-            education, care and mentorship — the support they need not just to survive, but to thrive.
+            education, care and mentorship - the support they need not just to survive, but to thrive.
           </motion.p>
           <motion.div className="lsh__actions" variants={rise}>
             <a href="/donation" className="lsh__btn lsh__btn--primary">

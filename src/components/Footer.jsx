@@ -43,7 +43,7 @@ export default function Footer() {
         <div className="ft__top">
           {/* brand */}
           <div className="ft__brand">
-            <img className="ft__logo" src="/images/logo.png" alt="Kenya Thriving" />
+            <img className="ft__logo" src="https://res.cloudinary.com/gjpfbvzb/image/upload/v1788506681/KenyaThrivingLogo-Light_nkkqzw.png" alt="Kenya Thriving" />
             <p className="ft__tagline">
               Empowering orphaned children in Kenya through education, care, and community.
             </p>

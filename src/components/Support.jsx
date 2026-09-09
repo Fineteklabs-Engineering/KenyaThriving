@@ -8,14 +8,14 @@ const actions = [
   {
     icon: <FiUsers />,
     title: 'Become a Volunteer',
-    desc: 'Give your time and skills — mentor a child, help at events, or lend a professional hand. Volunteers are the heart of everything we do in Kenya.',
+    desc: 'Give your time and skills - mentor a child, help at events, or lend a professional hand. Volunteers are the heart of everything we do in Kenya.',
     cta: 'Join Us',
     link: '/become-a-volunteer',
   },
   {
     icon: <FiGift />,
     title: 'Donate & Change a Life',
-    desc: 'Your gift covers school fees, uniforms and learning materials — and 100% of it reaches the children. A single donation can change a child\u2019s entire future.',
+    desc: 'Your gift covers school fees, uniforms and learning materials - and 100% of it reaches the children. A single donation can change a child\u2019s entire future.',
     cta: 'Donate Now',
     link: '/donation',
     middle: true,

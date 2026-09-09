@@ -8,9 +8,8 @@ const ease = [0.22, 1, 0.36, 1];
 const bounce = { type: 'spring', stiffness: 140, damping: 12, mass: 0.9 };
 const YOUTUBE_ID = 'd70S3kM38aY';
 
-// pattern background — paste your image URL
+
 const PATTERN_BG = 'https://pub-69c28885ad5a46889ef25035975f7ba1.r2.dev/4090026_88332.jpg';
-// the two side images
 const LEFT_IMG = 'https://res.cloudinary.com/gjpfbvzb/image/upload/v1787834772/IMG_1305_n80m9d.jpg';
 const RIGHT_IMG = 'https://res.cloudinary.com/gjpfbvzb/image/upload/v1788179983/IMG_4164-scaled_ru1pwl.webp';
 
@@ -58,10 +57,10 @@ export default function LearningStars() {
         transition={{ duration: 0.3 }}
         style={{ pointerEvents: playing ? 'none' : 'auto' }}
       >
-        <h2 className="ls__title">The <em>Learning Stars</em></h2>
+        <h2 className="ls__title">The Learning Stars</h2>
         <p className="ls__lead">
           We give orphaned and vulnerable children in Kenya a place in boarding school and support
-          them all the way — from school fees and uniforms to mentorship and life skills.
+          them all the way - from school fees and uniforms to mentorship and life skills.
         </p>
 
         <div className="ls__features">

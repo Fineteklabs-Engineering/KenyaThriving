@@ -1,6 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 import HowWeHelpHero from '../components/HowWeHelpHero';
 import Fundraiser from '../components/Fundraiser';
+import HowWeHelpImpact from '../components/HowWeHelpImpact';
 
 export default function HowWeHelpPage() {
   return (
@@ -14,6 +15,7 @@ export default function HowWeHelpPage() {
       </Helmet>
       <HowWeHelpHero />
       <Fundraiser />
+      <HowWeHelpImpact />
     </>
   );
 }

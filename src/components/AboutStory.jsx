@@ -48,7 +48,7 @@ export default function AboutStory() {
 
 During a visit to the area, two of our trustees met the couple and saw firsthand the poverty and struggles facing these children. Moved by what they witnessed, they knew they had to help. Kenya Thriving was born from this encounter, with a commitment to give vulnerable children hope and opportunity.
 
-Since 2012, we have supported children with school fees, uniforms, learning materials, food, medical care, hygiene supplies, and mentorship. Today, through our Learning Stars Initiative, we continue this work with a strong focus on education—helping children learn, grow, pursue their dreams, and build brighter futures.
+Since 2012, we have supported children with school fees, uniforms, learning materials, food, medical care, hygiene supplies, and mentorship. Today, through our Learning Stars Initiative, we continue this work with a strong focus on education-helping children learn, grow, pursue their dreams, and build brighter futures.
 
 Together, we are transforming lives and building futures, one child at a time.
           </motion.p>

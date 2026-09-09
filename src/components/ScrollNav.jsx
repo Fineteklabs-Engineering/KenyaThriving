@@ -5,7 +5,6 @@ import { FiMenu, FiX } from 'react-icons/fi';
 import '../styles/scroll-nav.css';
 
 const LOGO_LIGHT = 'https://res.cloudinary.com/gjpfbvzb/image/upload/v1788506681/KenyaThrivingLogo-Light_nkkqzw.png';
-// 👇 dark/colour logo — shows on the white bar (scrolled, and on solid routes)
 const LOGO_DARK = '/images/logo.png';
 
 // routes where the nav is white/solid from the top (light-hero pages)

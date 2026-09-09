@@ -1,0 +1,66 @@
+.hwi {
+  position: relative;
+  background: var(--kt-butter);
+  padding: clamp(72px, 11vh, 130px) clamp(28px, 6vw, 80px);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* subtle dotted texture — stands in for the reference's dotted world map */
+.hwi::before {
+  content: '';
+  position: absolute; inset: 0; z-index: -1;
+  background-image: radial-gradient(rgba(22,51,59,.07) 1.5px, transparent 1.5px);
+  background-size: 22px 22px;
+  -webkit-mask-image: radial-gradient(ellipse 82% 62% at 50% 32%, #000 0%, transparent 72%);
+          mask-image: radial-gradient(ellipse 82% 62% at 50% 32%, #000 0%, transparent 72%);
+}
+
+/* heading */
+.hwi__head {
+  max-width: 760px; margin: 0 auto clamp(48px, 6vw, 76px);
+  text-align: center; display: flex; flex-direction: column; align-items: center;
+}
+.hwi__title {
+  font-family: var(--font-display);   /* ← swap to your section heading var if different */
+  color: var(--kt-petrol); font-weight: 600;
+  font-size: clamp(2rem, 4.4vw, 3.2rem); line-height: 1.1; letter-spacing: -0.01em;
+}
+.hwi__sub {
+  color: var(--kt-muted); font-size: 1rem; line-height: 1.65;
+  margin-top: 16px; max-width: 52ch;
+}
+
+/* stats row */
+.hwi__grid {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(5, 1fr);
+  gap: clamp(20px, 3vw, 40px);
+}
+.hwi__item {
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+  transition: transform .25s ease;
+}
+.hwi__item:hover { transform: translateY(-4px); }
+.hwi__icon {
+  color: var(--kt-yellow); font-size: clamp(2rem, 2.6vw, 2.5rem); line-height: 1;
+  transition: transform .25s ease;
+}
+.hwi__item:hover .hwi__icon { transform: scale(1.08); }
+.hwi__num {
+  font-family: var(--font-body); color: var(--kt-petrol);
+  font-weight: 800; font-size: clamp(2.4rem, 4vw, 3.4rem); line-height: 1;
+  margin-top: 16px;
+}
+.hwi__label {
+  color: var(--kt-muted); font-size: clamp(.9rem, 1vw, 1rem); font-weight: 500;
+  line-height: 1.35; margin-top: 10px; max-width: 16ch;
+}
+
+/* responsive */
+@media (max-width: 1000px) {
+  .hwi__grid { grid-template-columns: repeat(3, 1fr); row-gap: clamp(38px, 6vw, 52px); }
+}
+@media (max-width: 620px) {
+  .hwi__grid { grid-template-columns: repeat(2, 1fr); }
+}

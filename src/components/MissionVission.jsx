@@ -44,7 +44,7 @@ export default function MissionVision() {
           </motion.h3>
           <motion.p className="mv__desc" variants={rise}>
             Since 2012, we&apos;ve helped children across Kenya stay in school and
-            thrive — providing the education, care and support they need to build a
+            thrive - providing the education, care and support they need to build a
             brighter future.
           </motion.p>
         </motion.div>
