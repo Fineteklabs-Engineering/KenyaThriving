@@ -1,5 +1,7 @@
 .hwe {
-  background: var(--kt-sand);
+  background:
+    linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)),
+    var(--kt-fog);
   padding: clamp(72px, 11vh, 130px) clamp(28px, 6vw, 80px);
 }
 
