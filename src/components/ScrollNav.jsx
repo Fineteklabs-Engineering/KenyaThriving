@@ -7,8 +7,8 @@ import '../styles/scroll-nav.css';
 const LOGO_LIGHT = 'https://res.cloudinary.com/gjpfbvzb/image/upload/v1788506681/KenyaThrivingLogo-Light_nkkqzw.png';
 const LOGO_DARK = '/images/logo.png';
 
-// routes where the nav is white/solid from the top (light-hero pages)
-const SOLID_ROUTES = ['/learning-stars'];
+
+const SOLID_ROUTES = ['/learning-stars', '/gallery'];
 
 const links = [
   { label: 'Home',        href: '/' },

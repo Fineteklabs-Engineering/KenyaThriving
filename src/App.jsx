@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import LearningStarsPage from './pages/LearningStarsPage';
 import HowWeHelpPage from './pages/HowWeHelpPage';
+import GlleryPage from './pages/GalleryPage';
 
 
 export default function App() {
@@ -17,6 +18,7 @@ export default function App() {
             <Route path="about-us" element={<About />} />
             <Route path="learning-stars" element={<LearningStarsPage />} />
             <Route path="how-we-help" element={<HowWeHelpPage />} />
+            <Route path="gallery" element={<GlleryPage />} />
           </Route>
         </Routes>
       </BrowserRouter>
