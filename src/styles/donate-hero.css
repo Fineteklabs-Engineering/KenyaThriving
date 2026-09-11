@@ -60,11 +60,24 @@
   background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.16);
   border-radius: 12px; padding: 0 18px;
 }
-.dh__amount-currency { color: #fff; font-weight: 600; font-size: 1.25rem; }
+
+
+.dh__amount-currency { color: #fff;
+   font-weight: 600; 
+   font-size: 1.25rem; }
 .dh__amount-input {
-  flex: 1; background: transparent; border: none; outline: none;
+  flex: 1; background: transparent; border: none;
+  outline: none !important; box-shadow: none !important;
+  -webkit-appearance: none; -moz-appearance: textfield; appearance: none;
   color: #fff; font-size: 1.25rem; font-weight: 600; padding: 16px 12px;
 }
+.dh__amount-input:focus,
+.dh__amount-input:focus-visible {
+  outline: none !important; box-shadow: none !important;
+ 
+}
+
+
 .dh__presets { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
 .dh__preset {
   padding: 11px 20px; border-radius: var(--r-pill);
