@@ -3,6 +3,7 @@ import AboutHero from '../components/AboutHero';
 import AboutStory from '../components/AboutStory';
 import MissionVision from '../components/MissionVission';
 import Team from '../components/Team';
+import WhyWeStarted from '../components/WhyWeStarted';
 import HowYouCanHelp from '../components/HowYouCanHelp';
 
 export default function About() {
@@ -17,6 +18,7 @@ export default function About() {
       </Helmet>
       <AboutHero />
       <AboutStory />
+      <WhyWeStarted />
       <MissionVision />
       <Team />
       <HowYouCanHelp />

@@ -74,8 +74,8 @@
   place-items: center;
   font-size: 1.6rem;
 }
-.mv__icon--mission { background: rgb(143, 163, 30); color: var(--kt-white); }
-.mv__icon--vision  { background: rgb(11, 163, 196); color: var(--kt-white); }
+.mv__icon--mission { background: rgb(11, 163, 196); color: var(--kt-white); }
+.mv__icon--vision  { background: rgb(143, 163, 30); color: var(--kt-white); }
 .mv__item-title {
   font-family: var(--font-display);
   color: var(--kt-petrol);
