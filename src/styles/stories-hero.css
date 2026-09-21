@@ -1,0 +1,174 @@
+.sh {
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  color: var(--kt-white);
+  padding: 132px clamp(20px, 5vw, 72px) 72px;
+
+ 
+  background-color: var(--kt-petrol);
+  background-image: url('https://res.cloudinary.com/gjpfbvzb/image/upload/v1790029047/ChatGPT_Image_Sep_22_2026_01_16_31_AM_y5yh38.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+/* soft vignette for depth (sits above arcs, below content) */
+.sh::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(120% 85% at 68% 42%, transparent 42%, rgba(9, 22, 26, 0.38) 100%);
+}
+
+/* decorative arcs */
+.sh__deco {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.sh__deco circle {
+  fill: none;
+  stroke: var(--kt-yellow);
+  stroke-width: 1;
+  opacity: 0.06;
+}
+
+.sh__inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  align-items: center;
+  gap: clamp(32px, 5vw, 72px);
+}
+
+/* ---- copy ---- */
+.sh__title {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: clamp(2.3rem, 4.6vw, 3.7rem);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+.sh__accent { color: var(--kt-yellow); }
+
+.sh__lede {
+  margin: 22px 0 0;
+  max-width: 42ch;
+  font-size: clamp(1rem, 1.3vw, 1.12rem);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.sh__actions {
+  margin-top: 32px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.sh__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 30px;
+  border-radius: var(--r-pill);
+  background: var(--kt-yellow);
+  color: var(--kt-petrol);
+  font-weight: 700;
+  font-size: 1rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.sh__btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px -12px rgba(239, 200, 20, 0.6);
+}
+.sh__play {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  border: 2px solid rgba(239, 200, 20, 0.6);
+  color: var(--kt-yellow);
+  font-size: 1.15rem;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+.sh__play:hover {
+  background: var(--kt-yellow);
+  color: var(--kt-petrol);
+  transform: scale(1.06);
+}
+
+.sh__feats {
+  margin: 30px 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 26px;
+}
+.sh__feat {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.98rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+.sh__feat-ic {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(239, 200, 20, 0.16);
+  color: var(--kt-yellow);
+  font-size: 0.8rem;
+}
+
+/* ---- mosaic ---- */
+.sh__mosaic {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(5, 1fr);
+  gap: 16px;
+  height: 560px;
+}
+.sh__cell {
+  margin: 0;
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: var(--shadow-card);
+  will-change: transform;
+}
+.sh__cell img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.sh__cell--1 { grid-column: 1; grid-row: 1 / span 3; } /* tall  top-left    */
+.sh__cell--2 { grid-column: 1; grid-row: 4 / span 2; } /* short bottom-left */
+.sh__cell--3 { grid-column: 2; grid-row: 1 / span 2; } /* short top-right   */
+.sh__cell--4 { grid-column: 2; grid-row: 3 / span 3; } /* tall  bottom-right*/
+
+/* ---- responsive ---- */
+@media (max-width: 980px) {
+  .sh { padding-top: 116px; min-height: auto; }
+  .sh__inner { grid-template-columns: 1fr; gap: 40px; }
+  .sh__mosaic { height: 460px; max-width: 560px; }
+}
+@media (max-width: 520px) {
+  .sh__mosaic { height: 380px; gap: 12px; }
+  .sh__actions { flex-wrap: wrap; }
+}

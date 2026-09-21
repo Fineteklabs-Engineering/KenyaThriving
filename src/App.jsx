@@ -7,7 +7,7 @@ import LearningStarsPage from './pages/LearningStarsPage';
 import HowWeHelpPage from './pages/HowWeHelpPage';
 import GlleryPage from './pages/GalleryPage';
 import DonatePage from './pages/DonatePage';
-
+import StoriesPage from './pages/StoriesPage';
 
 export default function App() {
   return (
@@ -22,6 +22,7 @@ export default function App() {
             <Route path="gallery" element={<GlleryPage />} />
             <Route path="donation" element={<DonatePage />} />
             <Route path="donate" element={<DonatePage />} />
+            <Route path="inspiring-stories" element={<StoriesPage />} />
           </Route>
         </Routes>
       </BrowserRouter>
