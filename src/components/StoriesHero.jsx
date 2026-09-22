@@ -1,8 +1,7 @@
 import { motion } from 'motion/react';
-import { FiPlay, FiCheck } from 'react-icons/fi';
+import { FiPlay, FiCheck, FiArrowRight } from 'react-icons/fi';
 import '../styles/stories-hero.css';
 
-// TODO: swap in the real Cloudinary URLs per slot.
 const IMAGES = {
   topLeft:     'https://res.cloudinary.com/gjpfbvzb/image/upload/v1788165649/Nessy-Atieno-Grade-9-2025_vwlumk.jpg',
   bottomLeft:  'https://res.cloudinary.com/gjpfbvzb/image/upload/v1787748336/images_2_wbod3v.jpg',
@@ -10,7 +9,15 @@ const IMAGES = {
   bottomRight: 'https://res.cloudinary.com/gjpfbvzb/image/upload/v1790030005/Jane-Asiko_krwxaj.jpg',
 };
 
-const FEATURES = ['Education', 'Healthcare', 'Mentorship']; 
+const FEATURES = ['Education', 'Healthcare', 'Mentorship'];
+
+// each mosaic slot; `to` + `name` turn it into a clickable story card
+const CELLS = [
+  { slot: 1, src: IMAGES.topLeft,     alt: 'Nessy, a Learning Stars child',        to: '/inspiring-stories/nessy',      name: 'Nessy' },
+  { slot: 2, src: IMAGES.bottomLeft,  alt: 'Children supported by Kenya Thriving', to: null, name: null },
+  { slot: 3, src: IMAGES.topRight,    alt: 'A Kenya Thriving community programme', to: null, name: null },
+  { slot: 4, src: IMAGES.bottomRight, alt: 'Jane Asiko, a Learning Stars child',   to: '/inspiring-stories/jane-asiko', name: 'Jane Asiko' },
+];
 
 // left-column copy: simple fade-up on load
 const fade = {
@@ -27,7 +34,6 @@ const mosaic = {
   hidden: {},
   show: { transition: { staggerChildren: 0.14, delayChildren: 0.15 } },
 };
-
 
 const STACK = {
   1: { x: 90,  y: 70,  rotate: -8 },
@@ -48,11 +54,38 @@ const card = (slot) => ({
   },
 });
 
+function Cell({ cell }) {
+  const media = (
+    <>
+      <img src={cell.src} alt={cell.to ? '' : cell.alt} aria-hidden={cell.to ? true : undefined} />
+      {cell.to && (
+        <span className="sh__cap">
+          <span className="sh__cap-name">{cell.name}</span>
+          <span className="sh__cap-cta">Read the story <FiArrowRight /></span>
+        </span>
+      )}
+    </>
+  );
+
+  return (
+    <motion.figure
+      className={`sh__cell sh__cell--${cell.slot}${cell.to ? ' sh__cell--link' : ''}`}
+      variants={card(cell.slot)}
+    >
+      {cell.to ? (
+        <a href={cell.to} className="sh__cell-link" aria-label={`Read ${cell.name}'s story`}>
+          {media}
+        </a>
+      ) : (
+        media
+      )}
+    </motion.figure>
+  );
+}
+
 export default function StoriesHero() {
   return (
     <section className="sh">
-      {/* faint decorative arcs */}
-
       <div className="sh__inner">
         {/* left — copy */}
         <div className="sh__copy">
@@ -69,15 +102,15 @@ export default function StoriesHero() {
 
           <motion.div className="sh__actions" variants={fade} custom={2} initial="hidden" animate="show">
             <a href="/donation" className="sh__btn">Donate now</a>
-     <a      
-  href="https://www.youtube.com/watch?v=d70S3kM38aY"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="sh__play"
-  aria-label="Watch our story on YouTube"
->
-  <FiPlay />
-</a>
+              <a
+              href="https://www.youtube.com/watch?v=d70S3kM38aY"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="sh__play"
+              aria-label="Watch our story on YouTube"
+            >
+              <FiPlay />
+            </a>
           </motion.div>
 
           <motion.ul className="sh__feats" variants={fade} custom={3} initial="hidden" animate="show">
@@ -98,18 +131,9 @@ export default function StoriesHero() {
           whileInView="show"
           viewport={{ once: true, amount: 0.3 }}
         >
-          <motion.figure className="sh__cell sh__cell--1" variants={card(1)}>
-            <img src={IMAGES.topLeft} alt="Volunteers preparing food parcels" />
-          </motion.figure>
-          <motion.figure className="sh__cell sh__cell--2" variants={card(2)}>
-            <img src={IMAGES.bottomLeft} alt="Volunteers sorting supplies" />
-          </motion.figure>
-          <motion.figure className="sh__cell sh__cell--3" variants={card(3)}>
-            <img src={IMAGES.topRight} alt="Children smiling at a window" />
-          </motion.figure>
-          <motion.figure className="sh__cell sh__cell--4" variants={card(4)}>
-            <img src={IMAGES.bottomRight} alt="Hands holding a paper heart" />
-          </motion.figure>
+          {CELLS.map((cell) => (
+            <Cell key={cell.slot} cell={cell} />
+          ))}
         </motion.div>
       </div>
     </section>

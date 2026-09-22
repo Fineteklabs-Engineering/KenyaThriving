@@ -25,7 +25,8 @@ export default function ScrollNav() {
   const probeRef = useRef(null);
 
   const { pathname } = useLocation();
-  const forcedSolid = SOLID_ROUTES.includes(pathname);
+  const forcedSolid =
+  SOLID_ROUTES.includes(pathname) || pathname.startsWith('/inspiring-stories/');
   const showSolid = scrolled || forcedSolid;   // solid routes look scrolled from the top
 
   useEffect(() => {

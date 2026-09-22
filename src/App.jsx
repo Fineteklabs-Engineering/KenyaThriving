@@ -8,6 +8,7 @@ import HowWeHelpPage from './pages/HowWeHelpPage';
 import GlleryPage from './pages/GalleryPage';
 import DonatePage from './pages/DonatePage';
 import StoriesPage from './pages/StoriesPage';
+import StoryPage from './pages/StoryPage';
 
 export default function App() {
   return (
@@ -23,6 +24,7 @@ export default function App() {
             <Route path="donation" element={<DonatePage />} />
             <Route path="donate" element={<DonatePage />} />
             <Route path="inspiring-stories" element={<StoriesPage />} />
+            <Route path="inspiring-stories/:slug" element={<StoryPage />} />
           </Route>
         </Routes>
       </BrowserRouter>
